@@ -27,6 +27,31 @@
 #' 
 days_until_weekday <- function(weekday, date_from = lubridate::today(tzone = "Pacific/Auckland")) {
 
+  # Check that `weekday` is a single string
+  assertthat::assert_that(
+    rlang::is_string(weekday),
+    msg = glue::glue("`weekday` must be a single string.")
+  )
+
+  assertthat::assert_that(
+    is.Date(date_from),
+    msg = glue::glue("`date_from` must be of type date.")
+  )
+
+  assertthat::assert_that(
+    length(date_from) == 1,
+    msg = glue::glue("`date_from` must be of length one - A single date.")
+  )
+
+  # Ensure weekday sting starts with uppercase letter (e.g. "monday" => "Monday")
+  weekday <- stringr::str_to_title(weekday)
+
+  # Ensure a valid weekday is provided
+  assertthat::assert_that(
+    weekday %in% c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"), 
+    msg = glue::glue("`weekday` must be a day of the week, e.g 'Monday', not '{weekday}'.")
+  )
+
   # Get today's weekday name
   today_weekday <- weekdays(date_from)
 
