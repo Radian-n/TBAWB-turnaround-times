@@ -55,6 +55,34 @@ parse_digits_to_dates <- function(
   current_date = lubridate::floor_date(CURRENT_DATETIME, unit = "days")
 ) {
 
+  # Argument: process_row_df
+  assertthat::assert_that(is.data.frame(process_row_df), msg = "`process_row_df` must be a dataframe")
+  assertthat::assert_that(all(dim(process_row_df) == c(1, 4)), msg = "`process_row_df` must have 1 row and 4 columns")
+  assertthat::assert_that(
+    all(colnames(process_row_df) %in% c("Service", "Develop Only", "Dev + Scan", "Prints Add On")),
+    msg = glue::glue("`process_row_df` must have column names: 'Service', 'Develop Only', 'Dev + Scan', 'Prints Add On'.")
+  )
+  assertthat::assert_that(
+    !("E-6" %in% process_row_df$Service), 
+    msg = "This function is not designed to handle E-6 turnaround times. These are static (e.g 'Processed Wednesday') and should be used with parse_weekdays_to_date()"
+  )
+
+  # Argument: biz_calendar_name
+  assertthat::assert_that(
+    biz_calendar_name %in% names(bizdays::calendars()),
+    msg = glue::glue("`biz_calendar_name` must be a valid bizdays calendar. Use bizdays::calendars() to check existing calendars, and bizdays::create.calendar() to create a bizdays calendar.")
+  )
+
+  # Argument: current_date
+  assertthat::assert_that(
+    lubridate::is.Date(current_date), 
+    msg = glue::glue("`current_date` must be of type Date, not type {typeof(current_date)}.")
+  )
+  assertthat::assert_that(
+    length(current_date) == 1,
+    msg = glue::glue("`current_date` must be a single date, not a vector of length: {length(current_date)}.")
+  )
+
   # Calculate dev only due date
   dev_only_date <- bizdays::offset(
     current_date,
