@@ -50,7 +50,7 @@ test_that("Weekday names spelled correctly", {
 test_that("Weekday names incorrectly capitalised", {
   monday <- lubridate::ymd("2025-03-10")
   weekday_string <- "monday"  # lowercase
-  days_until_weekday(weekday_string, date_from = monday)
+  result <- days_until_weekday(weekday_string, date_from = monday)
   expect_equal(result, 7)
 })
 
