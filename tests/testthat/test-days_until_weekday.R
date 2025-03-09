@@ -35,7 +35,7 @@ test_that("Weekday names spelled correctly", {
   weekday_strings <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
 
   # Run all the weekday names through the function. If any weekday names spelled incorrectly inside assert_that() check, this should return an error.
-  result <- map(
+  result <- purrr::map(
     weekday_strings, 
     ~days_until_weekday(weekday = .x, date_from = today)
   )
