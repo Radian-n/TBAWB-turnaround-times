@@ -34,7 +34,7 @@ days_until_weekday <- function(weekday, date_from = lubridate::today(tzone = "Pa
   )
 
   assertthat::assert_that(
-    is.Date(date_from),
+    lubridate::is.Date(date_from),
     msg = glue::glue("`date_from` must be of type date.")
   )
 
