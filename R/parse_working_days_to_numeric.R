@@ -29,8 +29,13 @@
 #' # 1 C-41                 2            5               6
 #' 
 parse_working_days_to_numeric <- function(process_row_df) {
-  # For C-41, B&W, ECN-2, ALT
-  # NOT E-6
+
+  assertthat::assert_that(is.data.frame(process_row_df), msg = "`process_row_df` must be a dataframe")
+  assertthat::assert_that(all(dim(process_row_df) == c(1, 4)), msg = "`process_row_df` must have 1 row and 4 columns")
+  assertthat::assert_that(
+    all(colnames(process_row_df) %in% c("Service", "Develop Only", "Dev + Scan", "Prints Add On")),
+    msg = glue::glue("`process_row_df` must have column names: 'Service', 'Develop Only', 'Dev + Scan', 'Prints Add On'.")
+  )
 
   # Parse 'working days' strings into numbers  (e.g "3 working days")
   dev_only_days <- readr::parse_number(process_row_df$`Develop Only`)
