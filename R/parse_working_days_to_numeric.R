@@ -36,6 +36,10 @@ parse_working_days_to_numeric <- function(process_row_df) {
     all(colnames(process_row_df) %in% c("Service", "Develop Only", "Dev + Scan", "Prints Add On")),
     msg = glue::glue("`process_row_df` must have column names: 'Service', 'Develop Only', 'Dev + Scan', 'Prints Add On'.")
   )
+  assertthat::assert_that(
+    !("E-6" %in% process_row_df$Service), 
+    msg = "This function is not designed to handle E-6 turnaround times. These are static (e.g 'Processed Wednesday') and should be used with parse_weekdays_to_date()"
+  )
 
   # Parse 'working days' strings into numbers  (e.g "3 working days")
   dev_only_days <- readr::parse_number(process_row_df$`Develop Only`)

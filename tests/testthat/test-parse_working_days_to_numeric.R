@@ -63,4 +63,13 @@ test_that("Function parameter checks work correctly", {
     "Prints Add On" = "+ 1 Working days"
   )
   expect_error(parse_working_days_to_numeric(test_df))
+
+  # Function rejects E-6 dataframe row
+  test_df <- tibble::tibble(
+    "Service" = "E-6",
+    "Develop Only" = "Processed Wednesday",
+    "Dev + Scan" = "Scans Sent Friday",
+    "Prints Add On" = "+ 1 Working days"
+  )
+  expect_error(parse_working_days_to_numeric(test_df))
 })
