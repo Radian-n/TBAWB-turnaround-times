@@ -25,7 +25,7 @@
 #' days_until_weekday("Wednesday", date_from = wednesday)
 #' # [1] 7
 #' 
-days_until_weekday <- function(weekday, date_from = lubridate::today(tzone = "Pacific/Auckland")) {
+days_until_weekday <- function(weekday, date_from) {
 
   # Check that `weekday` is a single string
   assertthat::assert_that(
