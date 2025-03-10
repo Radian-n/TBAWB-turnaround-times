@@ -52,7 +52,7 @@ parse_weekdays_to_date <- function(
   # For dev + scan, if the order comes in on wednesday, thursday or friday it won't be due until NEXT friday
   # This section handles if the order comes in on wednesday or thursday.
   # Since days_until_weekday() already excludes the current day, Friday handled implicitly
-  today_wday <- weekdays(date_today)
+  today_wday <- stringr::str_to_lower(weekdays(date_today))
   if (today_wday %in% c("wednesday", "thursday")) {
     # Adding 3 days to the date_from parameter to get us past friday, and into next week.
     # This gets us days until friday from saturday or sunday. Then add the extra 3 days so it gets us
