@@ -1,3 +1,10 @@
+#' Calls the NZ Holidays API and returns a dataframe of holidays
+#'
+#' @param year A single integer. The year to get holiday data from.
+#' @param api_key A single string. The API key for NZ Holidays.
+#'
+#' @returns A dataframe. 
+#' @export
 get_nz_holidays_from_year <- function(year, api_key) {
 
   # Create API request
@@ -20,9 +27,9 @@ get_nz_holidays_from_year <- function(year, api_key) {
       simplifyVector = TRUE
     ) |>
     # Convert to tibble dataframe
-    tibble::tibble() |> 
+    tibble::tibble() |>
     # Convert strings to datetimes
-    dplyr::mutate(ObservedDate = lubridate::dmy(ObservedDate)) |> 
+    dplyr::mutate(ObservedDate = lubridate::dmy(ObservedDate)) |>
     dplyr::mutate(ActualDate = lubridate::dmy(ActualDate))
 
   return(holidays_df)
