@@ -39,3 +39,5 @@ jobs:
       # Verify index.qmd render
       - name: Render Quarto ProjectW
         uses: quarto-dev/quarto-actions/render@v2
+        env:
+          NZ_HOLIDAYS_API_KEY: ${{ secrets.NZ_HOLIDAYS_API_KEY }}
