@@ -19,6 +19,11 @@ extract_weekday_from_string <- function(string) {
   # Conver to lowercase to ensure matching not case-sensative
   string_lower <- stringr::str_to_lower(string)
 
+  assertthat::assert_that(
+    rlang::is_string(string), 
+    msg = glue::glue("`string` should be a single string. Not type: {typeof(string)}")
+  )
+
   # Extract weekday name from string
   weekday <- stringr::str_extract(string_lower, "\\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\\b")
 
