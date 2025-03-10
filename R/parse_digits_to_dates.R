@@ -69,6 +69,10 @@ parse_digits_to_dates <- function(
 
   # Argument: biz_calendar_name
   assertthat::assert_that(
+    rlang::is_string(biz_calendar_name),
+    msg = glue::glue("`biz_calendar_name` must be a string - the name of an existing bizdays calendar.")
+  )
+  assertthat::assert_that(
     biz_calendar_name %in% names(bizdays::calendars()),
     msg = glue::glue("`biz_calendar_name` must be a valid bizdays calendar. Use bizdays::calendars() to check existing calendars, and bizdays::create.calendar() to create a bizdays calendar.")
   )

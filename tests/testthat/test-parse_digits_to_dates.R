@@ -31,7 +31,6 @@ test_that("No holidays no weekend", {
 
 
 test_that("Over weekend", {
-
   input_df <- tibble::tibble(
     "Service" = "C-41",
     "Develop Only" = 1,
@@ -64,7 +63,6 @@ test_that("Over weekend", {
 
 
 test_that("Over single holiday", {
-
   input_df <- tibble::tibble(
     "Service" = "C-41",
     "Develop Only" = 1,
@@ -100,7 +98,6 @@ test_that("Over single holiday", {
 
 
 test_that("Over long weekend", {
-
   input_df <- tibble::tibble(
     "Service" = "C-41",
     "Develop Only" = 3,
@@ -136,7 +133,6 @@ test_that("Over long weekend", {
 
 
 test_that("New Years period", {
-
   input_df <- tibble::tibble(
     "Service" = "C-41",
     "Develop Only" = 3,
@@ -226,6 +222,15 @@ test_that("Function parameter checks work correctly", {
       biz_calendar_name = "test_cal",
       current_date = test_date
     )
+  )
+  # biz_calendar_name type check
+  expect_error(
+    parse_digits_to_dates(
+      input_df,
+      biz_calendar_name = test_cal, # Calendar object, not string.
+      current_date = test_date
+    ),
+    regexp = "`biz_calendar_name` must be a string.*"
   )
   # biz_calendar_name valid
   expect_error(
