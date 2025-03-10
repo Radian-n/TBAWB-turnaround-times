@@ -27,14 +27,10 @@ jobs:
         with:
           cache-version: 2
 
-      - name: Install devtools
-        run: |
-          Rscript -e 'install.packages("devtools")'
-
       # Run unit tests
       - name: Run testthat
         run: |
-          Rscript -e 'library(devtools); devtools::test()'
+          Rscript -e 'library(testthat); testthat::test_dir("tests")'
 
       # Verify index.qmd render
       - name: Render Quarto Project

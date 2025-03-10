@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(TBAWB-turnaround-times)
+devtools::load_all()
 
 test_check("TBAWB-turnaround-times")
