@@ -23,6 +23,10 @@ jobs:
         with:
           cache-version: 2
 
+      - name: Install devtools
+        run: |
+          Rscript -e 'install.packages("devtools")'
+
       - name: Run testthat
         run: |
           Rscript -e 'library(devtools); devtools::test()'
