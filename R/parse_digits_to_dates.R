@@ -52,7 +52,7 @@
 parse_digits_to_dates <- function(
   process_row_df,
   biz_calendar_name = "bawb_calendar",
-  current_date = lubridate::floor_date(CURRENT_DATETIME, unit = "days")
+  current_date = lubridate::today(tzone = "Pacific/Auckland")
 ) {
 
   # Argument: process_row_df
