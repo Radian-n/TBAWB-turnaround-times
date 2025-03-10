@@ -57,7 +57,7 @@ parse_weekdays_to_date <- function(
     # Adding 3 days to the date_from parameter to get us past friday, and into next week.
     # This gets us days until friday from saturday or sunday. Then add the extra 3 days so it gets us
     # days until friday next week from wednesday/thursday this week.
-    dev_and_scan_days <- 3 + days_until_weekday(dev_and_scan_weekday, date_from = lubridate::today(tzone = "Pacific/Auckland") + 3)
+    dev_and_scan_days <- 3 + days_until_weekday(dev_and_scan_weekday, date_from = date_today + 3)
   } else {
     # All other days can be handled like normal
     dev_and_scan_days <- days_until_weekday(dev_and_scan_weekday, date_from = date_today)
