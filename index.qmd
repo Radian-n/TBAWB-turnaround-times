@@ -86,6 +86,11 @@ ecn2_df <- film_turnaround_df |>
   parse_working_days_to_numeric() |>
   parse_digits_to_dates()
 
+souped_df <- film_turnaround_df |>
+  dplyr::filter(Service == "Souped Film") |>
+  parse_working_days_to_numeric() |>
+  parse_digits_to_dates()
+
 alt_df <- film_turnaround_df |>
   dplyr::filter(stringr::str_detect(Service, "^ALT Format.*")) |>
   parse_working_days_to_numeric() |>
@@ -97,6 +102,7 @@ turaround_dates_df <- dplyr::bind_rows(
   bw_df,
   e6_df,
   ecn2_df,
+  souped_df,
   alt_df
 )
 ```
