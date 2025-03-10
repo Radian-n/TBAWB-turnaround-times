@@ -43,6 +43,38 @@ parse_weekdays_to_date <- function(
   date_today = lubridate::today(tzone = "Pacific/Auckland")
 ) {
 
+  # Argument: process_row_df
+  assertthat::assert_that(is.data.frame(process_row_df), msg = "`process_row_df` must be a dataframe")
+  assertthat::assert_that(all(dim(process_row_df) == c(1, 4)), msg = "`process_row_df` must have 1 row and 4 columns")
+  assertthat::assert_that(
+    all(colnames(process_row_df) %in% c("Service", "Develop Only", "Dev + Scan", "Prints Add On")),
+    msg = glue::glue("`process_row_df` must have column names: 'Service', 'Develop Only', 'Dev + Scan', 'Prints Add On'.")
+  )
+  assertthat::assert_that(
+    "E-6" %in% process_row_df$Service, 
+    msg = glue::glue("This function should only be used to handle E-6 turnaround times, not C-41, B&W, etc.")
+  )
+
+  # Argument: biz_calendar_name
+  assertthat::assert_that(
+    rlang::is_string(biz_calendar_name),
+    msg = glue::glue("`biz_calendar_name` must be a string - the name of an existing bizdays calendar.")
+  )
+  assertthat::assert_that(
+    biz_calendar_name %in% names(bizdays::calendars()),
+    msg = glue::glue("`biz_calendar_name` must be a valid bizdays calendar. Use bizdays::calendars() to check existing calendars, and bizdays::create.calendar() to create a bizdays calendar.")
+  )
+
+  # Argument: date_today
+  assertthat::assert_that(
+    lubridate::is.Date(date_today), 
+    msg = glue::glue("`date_today` must be of type Date, not type {typeof(date_today)}.")
+  )
+  assertthat::assert_that(
+    length(date_today) == 1,
+    msg = glue::glue("`date_today` must be a single date, not a vector of length: {length(date_today)}.")
+  )
+
   dev_only_weekday <- extract_weekday_from_string(process_row_df$`Develop Only`)
   dev_and_scan_weekday <- extract_weekday_from_string(process_row_df$`Dev + Scan`)
 
