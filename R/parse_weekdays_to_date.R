@@ -1,9 +1,48 @@
+#' @title
+#' Converts a dataframe row from a string containing a weekday to the date of the next occurance of that weekday.
+#' 
+#' @description
+#' Function is designed to be used for the E-6 row. It converts strings suchas 'Scans sent Friday' to the date of the next occuring Friday.
+#' 
+#' 
+#' @param process_row_df A dataframe with a single row and the columns: `Service`, `Develop Only`, `Dev + Scan`, `Prints Add On`. This corresponds to the turnaround time table from The Black and White Box website. This expects the E-6 row.
+#' @param date_today A single Date. The date from which to determine the next occurance of a specific weekday.
+#'
+#' @returns A dataframe. The same as the input dataframe, but with the cells replaced by dates representing the turnaround date of the various services.
+#' @export
+#'
+#' @examples
+#' # Setup mock date and test calendar. These are required by the function.
+#' today <- lubridate::ymd("2025-03-10")
+#' test_cal <- bizdays::create.calendar(
+#'   "test_cal",
+#'   weekdays = c("saturday", "sunday")
+#' )
+#' 
+#' # Example of an input dataframe
+#' e6_string_df <- tibble::tibble(
+#'   "Service" = "E-6",
+#'   "Develop Only" = "Processed Wednesday",
+#'   "Dev + Scan" = "Scans Sent Friday",
+#'   "Prints Add On" = "+ 1 Working Days"
+#' )
+#' 
+#' parse_weekdays_to_date(
+#'   e6_string_df,
+#'   biz_calendar_name = test_cal,
+#'   date_today = today
+#' )
+#' # # A tibble: 1 × 4
+#' #   Service `Develop Only` `Dev + Scan` `Prints Add On`
+#' #   <chr>   <date>         <date>       <date>         
+#' # 1 E-6     2025-03-13     2025-03-14   2025-03-17     
+#' 
 parse_weekdays_to_date <- function(
   process_row_df, 
   biz_calendar_name = "bawb_calendar",
   date_today = lubridate::today(tzone = "Pacific/Auckland")
 ) {
-  
+
   dev_only_weekday <- extract_weekday_from_string(process_row_df$`Develop Only`)
   dev_and_scan_weekday <- extract_weekday_from_string(process_row_df$`Dev + Scan`)
 
