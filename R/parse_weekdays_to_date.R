@@ -1,5 +1,8 @@
-parse_weekdays_to_date <- function(process_row_df, date_today = lubridate::today(tzone = "Pacific/Auckland")) {
-  # To bs used only for E-6 row
+parse_weekdays_to_date <- function(
+  process_row_df, 
+  biz_calendar_name = "bawb_calendar",
+  date_today = lubridate::today(tzone = "Pacific/Auckland")
+) {
   
   dev_only_weekday <- extract_weekday_from_string(process_row_df$`Develop Only`)
   dev_and_scan_weekday <- extract_weekday_from_string(process_row_df$`Dev + Scan`)
@@ -23,7 +26,7 @@ parse_weekdays_to_date <- function(process_row_df, date_today = lubridate::today
 
   dev_only_date <- date_today + dev_only_days
   dev_and_scan_date <- date_today + dev_and_scan_days
-  prints_add_on_date <- bizdays::offset(dev_and_scan_date, 1, "bawb_calendar") # 1 extra business day
+  prints_add_on_date <- bizdays::offset(dev_and_scan_date, 1, biz_calendar_name) # 1 extra business day
 
   result_df <- tibble::tibble(
     "Service" = process_row_df$Service,
