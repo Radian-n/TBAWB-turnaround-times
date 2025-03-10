@@ -24,7 +24,6 @@ devtools::load_all()
 ```{r}
 #| label: get-current-datetime
 CURRENT_DATETIME <- lubridate::now(tzone = "Pacific/Auckland")
-# CURRENT_DATE <- lubridate::today(tzone = "Pacific/Auckland")
 ```
 
 ```{r}
