@@ -47,7 +47,7 @@ parse_weekdays_to_date <- function(
   dev_and_scan_weekday <- extract_weekday_from_string(process_row_df$`Dev + Scan`)
 
   # E-6 dev only on turnaround times website says 'processed wednesday', but actually due the next day
-  dev_only_days <- days_until_weekday(dev_only_weekday) + 1
+  dev_only_days <- days_until_weekday(dev_only_weekday, date_from = date_today) + 1
 
   # For dev + scan, if the order comes in on wednesday, thursday or friday it won't be due until NEXT friday
   # This section handles if the order comes in on wednesday or thursday.
@@ -60,7 +60,7 @@ parse_weekdays_to_date <- function(
     dev_and_scan_days <- 3 + days_until_weekday(dev_and_scan_weekday, date_from = lubridate::today(tzone = "Pacific/Auckland") + 3)
   } else {
     # All other days can be handled like normal
-    dev_and_scan_days <- days_until_weekday(dev_and_scan_weekday)
+    dev_and_scan_days <- days_until_weekday(dev_and_scan_weekday, date_from = date_today)
   }
 
   dev_only_date <- date_today + dev_only_days
