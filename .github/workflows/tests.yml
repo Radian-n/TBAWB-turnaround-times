@@ -25,6 +25,6 @@ jobs:
 
       - name: Run testthat
         run: |
-          Rscript -e 'devtools::test()'
+          Rscript -e 'library(devtools); devtools::test()'
 
 # Add a quarto render. to check that no issues rendering index.qmd
