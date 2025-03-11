@@ -23,7 +23,7 @@ devtools::load_all()
 
 ```{r}
 #| label: get-current-datetime
-CURRENT_DATETIME <- lubridate::now(tzone = "Pacific/Auckland")
+current_datetime <- lubridate::now(tzone = "Pacific/Auckland")
 ```
 
 ```{r}
@@ -35,7 +35,7 @@ nz_holidays_api_key <- Sys.getenv("NZ_HOLIDAYS_API_KEY")
 
 # Call NZ Holidays API
 holidays_df <- get_nz_holidays_from_year(
-  year = lubridate::year(CURRENT_DATETIME),
+  year = lubridate::year(current_datetime),
   api_key = nz_holidays_api_key
 )
 
@@ -115,7 +115,7 @@ turaround_dates_df |>
   knitr::kable()
 ```
 
-_As of **`r format(CURRENT_DATETIME, "%A %d %B %Y")`** at `r format(CURRENT_DATETIME, "%H:%M%p")`_
+_As of **`r format(current_datetime, "%A %d %B %Y")`** at `r format(current_datetime, "%H:%M%p")`_
 
 -------
 
@@ -135,7 +135,7 @@ film_turnaround_df |>
 #| label: display-upcoming-holidays
 
 holiday_dates_df |>
-  dplyr::filter(ObservedDate > CURRENT_DATETIME) |>
+  dplyr::filter(ObservedDate > current_datetime) |>
   dplyr::mutate(across(where(is.Date), ~ format(.x, "%d-%m-%Y"))) |>
   dplyr::select(HolidayName, ActualDate, ObservedDate, Type, DayOfWeek) |>
   knitr::kable()
