@@ -3,7 +3,7 @@ name: Run testthat on Pull Request
 on:
   pull_request:
     branches:
-      - main  # Adjust to the branch you want to monitor
+      - main
 
 jobs:
   test:
