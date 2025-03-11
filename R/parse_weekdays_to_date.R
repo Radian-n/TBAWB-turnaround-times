@@ -124,7 +124,7 @@ parse_weekdays_to_date <- function(
       days_until_weekday(
         dev_and_scan_weekday,
         date_from = date_today + 3
-      )    
+      )
   } else {
     # All other days can be handled like normal
     dev_and_scan_days <- days_until_weekday(
