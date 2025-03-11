@@ -18,6 +18,10 @@ jobs:
         with:
           r-version: '4.4.1'
 
+      - name: Install lintr
+        run: |
+          Rscript -e 'install.packages("lintr")'
+
       - name: Run lintr
         run: |
           Rscript -e 'library(lintr); lint_dir()'
