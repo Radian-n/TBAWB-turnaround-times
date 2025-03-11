@@ -75,7 +75,7 @@ test_that("Film arrives Saturday Sunday Monday Tuesday", {
 
 
 test_that("Film arrives Wednesday", {
-  # In this case, the due dates for this order should be NEXT wednesday & friday.
+  # The due dates for this order should be NEXT wednesday & friday.
   wednesday <- lubridate::ymd("2025-03-12")
   test_cal <- bizdays::create.calendar(
     "test_cal",
@@ -103,7 +103,7 @@ test_that("Film arrives Wednesday", {
 })
 
 test_that("Film arrives Thursday", {
-  # In this case, the due dates for this order should be NEXT wednesday & friday.
+  # The due dates for this order should be NEXT wednesday & friday.
   thursday <- lubridate::ymd("2025-03-13")
   test_cal <- bizdays::create.calendar(
     "test_cal",
@@ -131,7 +131,7 @@ test_that("Film arrives Thursday", {
 })
 
 test_that("Film arrives Friday", {
-  # In this case, the due dates for this order should be NEXT wednesday & friday.
+  # The due dates for this order should be NEXT wednesday & friday.
   friday <- lubridate::ymd("2025-03-13")
   test_cal <- bizdays::create.calendar(
     "test_cal",
@@ -157,7 +157,6 @@ test_that("Film arrives Friday", {
   )
   expect_equal(result, expected)
 })
-
 
 
 test_that("Function parameter checks work correctly", {
@@ -217,7 +216,7 @@ test_that("Function parameter checks work correctly", {
       biz_calendar_name = "test_cal",
       date_today = test_date
     ),
-    regexp = "This function should only be used to handle E-6 turnaround times.*"
+    regexp = "This function should only be used to handle E-6 turnaround time.*"
   )
   # biz_calendar_name type check
   expect_error(

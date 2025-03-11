@@ -51,7 +51,7 @@ holiday_dates_df <- holidays_df |>
 #| label: create-bizdays-calendar
 # Set up 'business calendar' for 'work day' calculations.
 # This is used to account for weekends and public holidays when calculating due dates.
-# Need to manually specify start and end dates because create.calendar() defaults to setting start.date to the min(holidays). 
+# create.calendar() defaults to setting start.date to the min(holidays). So need to specify manual start/end dates.
 bawb_biz_calendar <- bizdays::create.calendar(
   "bawb_calendar",
   weekdays = c("saturday", "sunday"),
@@ -78,7 +78,7 @@ bw_df <- film_turnaround_df |>
   parse_digits_to_dates()
 
 e6_df <- film_turnaround_df |>
-  dplyr::filter(Service == "E-6") |> 
+  dplyr::filter(Service == "E-6") |>
   parse_weekdays_to_date()
 
 ecn2_df <- film_turnaround_df |>
@@ -137,7 +137,7 @@ film_turnaround_df |>
 holiday_dates_df |>
   dplyr::filter(ObservedDate > CURRENT_DATETIME) |>
   dplyr::mutate(across(where(is.Date), ~ format(.x, "%d-%m-%Y"))) |>
-  dplyr::select(HolidayName, ActualDate, ObservedDate, Type, DayOfWeek) |> 
+  dplyr::select(HolidayName, ActualDate, ObservedDate, Type, DayOfWeek) |>
   knitr::kable()
 ```
 

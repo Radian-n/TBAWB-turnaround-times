@@ -3,10 +3,9 @@
 #' @param year A single integer. The year to get holiday data from.
 #' @param api_key A single string. The API key for NZ Holidays.
 #'
-#' @returns A dataframe. 
+#' @returns A dataframe.
 #' @export
 get_nz_holidays_from_year <- function(year, api_key) {
-
   # Create API request
   holiday_req <- httr2::request("https://api.public-holidays.nz/v1/") |>
     httr2::req_url_path_append(
@@ -23,7 +22,7 @@ get_nz_holidays_from_year <- function(year, api_key) {
   # Process response into dataframe
   holidays_df <- holiday_resp |>
     httr2::resp_body_json(
-      check_type = FALSE, # API response doesn't include a content type for some reason. Function fails because of this, so need to tell function not to check for the content type.
+      check_type = FALSE,  # API response doesn't include content-type=application/json.
       simplifyVector = TRUE
     ) |>
     # Convert to tibble dataframe

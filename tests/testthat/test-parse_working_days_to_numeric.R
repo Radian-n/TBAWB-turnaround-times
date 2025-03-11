@@ -19,7 +19,6 @@ test_that("Function parses strings", {
 })
 
 
-
 test_that("Function is case insensitive", {
   c41_string <- tibble::tibble(
     "Service" = "C-41",
@@ -41,9 +40,7 @@ test_that("Function is case insensitive", {
 })
 
 
-
 test_that("Function parameter checks work correctly", {
-
   # Must be of type dataframe
   expect_error(parse_working_days_to_numeric("not a dataframe"))
 

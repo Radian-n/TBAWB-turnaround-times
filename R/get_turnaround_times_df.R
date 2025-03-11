@@ -1,11 +1,13 @@
 #' Scrapes the turnaround time data from The Black and White Box website.
 #'
-#' @param get_table A single string. The turnaround time table to scrape. "film" to get the film-processing related turnaround times. "print" to get the printing related turnaround times.
+#' @param get_table A single string.
+#' The turnaround time table to scrape.
+#' "film" to get the film-processing related turnaround times.
+#' "print" to get the printing related turnaround times.
 #'
 #' @returns A dataframe. The turnaround times for the specified table.
 #' @export
 get_turnaround_times_df <- function(get_table = "film") {
-
   # Scrape turnaround times page
   turnaround_times <- rvest::read_html(
     "https://theblackandwhitebox.co.nz/turn-around-times/"
