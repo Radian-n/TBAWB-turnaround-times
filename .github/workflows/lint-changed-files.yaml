@@ -30,8 +30,9 @@ jobs:
           cat('\noptions(lintr.linter_file = ".lintr")\n', file = "~/.Rprofile", append = TRUE)
         shell: Rscript {0}
 
-      - name: Install package
-        run: R CMD INSTALL .
+      - name: Restore renv dependencies
+        run: |
+          Rscript -e 'renv::restore()'
 
       - name: Extract and lint files changed by this PR
         run: |
