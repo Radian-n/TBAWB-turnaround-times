@@ -7,67 +7,138 @@ execute:
 ---
 
 ```{r}
+#| label: load-packages
 library(rvest)
 library(httr2)
 library(tibble)
+library(dplyr)
+library(purrr)
 library(knitr)
 library(lubridate)
-```
+library(bizdays)
 
-
-## Updated:
-```{r}
-CURRENT_TIME <- lubridate::now(tzone = "Pacific/Auckland")
-CURRENT_TIME
+devtools::load_all()
 ```
 
 
 ```{r}
-turnaround_times <- rvest::read_html(
-  "https://theblackandwhitebox.co.nz/turn-around-times/"
+#| label: get-current-datetime
+current_datetime <- lubridate::now(tzone = "Pacific/Auckland")
+```
+
+```{r}
+#| label: access-nz-holidays-api
+# NZ Holidays API key comes from system environment:
+#  - Local development: .Renviron
+#  - Production: github secret
+nz_holidays_api_key <- Sys.getenv("NZ_HOLIDAYS_API_KEY")
+
+# Call NZ Holidays API
+holidays_df <- get_nz_holidays_from_year(
+  year = lubridate::year(current_datetime),
+  api_key = nz_holidays_api_key
 )
 
-turnaround_times_df <- turnaround_times |>
-  rvest::html_elements("table") |>
-  rvest::html_table()
+# Select only National holidays and Auckland-specific holidays
+holiday_dates_df <- holidays_df |>
+  dplyr::filter(
+    (stringr::str_detect(HolidayName, "Auckland")) |
+      (Type == "National")
+  )
 ```
 
-## Relative Turnaround Times
+```{r}
+#| label: create-bizdays-calendar
+# Set up 'business calendar' for 'work day' calculations.
+# This is used to account for weekends and public holidays when calculating due dates.
+# create.calendar() defaults to setting start.date to the min(holidays). So need to specify manual start/end dates.
+bawb_biz_calendar <- bizdays::create.calendar(
+  "bawb_calendar",
+  weekdays = c("saturday", "sunday"),
+  holidays = holiday_dates_df$ObservedDate,
+  start.date = lubridate::ymd("1970-01-01"),
+  end.date = lubridate::ymd("2071-01-01"),
+)
+```
 
 ```{r}
-turnaround_times_df[[1]] |>
+#| label: scrape-turnaround-time-webpage
+film_turnaround_df <- get_turnaround_times_df(get_table = "film")
+```
+
+```{r}
+c41_df <- film_turnaround_df |>
+  dplyr::filter(Service == "C-41") |>
+  parse_working_days_to_numeric() |>
+  parse_digits_to_dates()
+
+bw_df <- film_turnaround_df |>
+  dplyr::filter(Service == "B&W") |>
+  parse_working_days_to_numeric() |>
+  parse_digits_to_dates()
+
+e6_df <- film_turnaround_df |>
+  dplyr::filter(Service == "E-6") |>
+  parse_weekdays_to_date()
+
+ecn2_df <- film_turnaround_df |>
+  dplyr::filter(Service == "ECN-2") |>
+  parse_working_days_to_numeric() |>
+  parse_digits_to_dates()
+
+souped_df <- film_turnaround_df |>
+  dplyr::filter(Service == "Souped Film") |>
+  parse_working_days_to_numeric() |>
+  parse_digits_to_dates()
+
+alt_df <- film_turnaround_df |>
+  dplyr::filter(stringr::str_detect(Service, "^ALT Format.*")) |>
+  parse_working_days_to_numeric() |>
+  parse_digits_to_dates()
+
+
+turaround_dates_df <- dplyr::bind_rows(
+  c41_df,
+  bw_df,
+  e6_df,
+  ecn2_df,
+  souped_df,
+  alt_df
+)
+```
+
+
+```{r}
+turaround_dates_df |>
+  # Format dates into day-month-year
+  dplyr::mutate(across(where(is.Date), ~ format(.x, "%d-%m-%Y"))) |>
   knitr::kable()
 ```
 
+_As of **`r format(current_datetime, "%A %d %B %Y")`** at `r format(current_datetime, "%H:%M%p")`_
 
+-------
 
+#### Website Turnaround Times
 ```{r}
-API_KEY <- Sys.getenv("NZ_HOLIDAYS_API_KEY")
-HOLIDAYS_DOMAIN <- "https://api.public-holidays.nz/v1/"
-CURRENT_YEAR <- format(Sys.Date(), "%Y")
+#| label: display-website-turnaround-days
 
-holiday_req <- httr2::request(HOLIDAYS_DOMAIN) |>
-  httr2::req_url_path_append(
-		path = "year"
-	) |> 
-	httr2::req_url_query(
-		apikey = API_KEY,
-		year = CURRENT_YEAR
-	)
-
-holiday_resp <- holiday_req |> httr2::req_perform()
-
-# holiday_resp
-holidays_df <- holiday_resp |> 
-	httr2::resp_body_json(
-		check_type = FALSE, # API response doesn't include a content type for some reason. Function fails because of this, so need to force it not to check for the content type.
-		simplifyVector = TRUE
-		) |> 
-	tibble::tibble()
+film_turnaround_df |>
+  knitr::kable()
 ```
 
-## Public Holidays This Year
+[Source](https://theblackandwhitebox.co.nz/turn-around-times/)
+
+
+#### Upcoming Public Holidays
 ```{r}
-holidays_df |> 
-	knitr::kable()
+#| label: display-upcoming-holidays
+
+holiday_dates_df |>
+  dplyr::filter(ObservedDate > current_datetime) |>
+  dplyr::mutate(across(where(is.Date), ~ format(.x, "%d-%m-%Y"))) |>
+  dplyr::select(HolidayName, ActualDate, ObservedDate, Type, DayOfWeek) |>
+  knitr::kable()
 ```
+
+[Source](https://www.public-holidays.nz/)
