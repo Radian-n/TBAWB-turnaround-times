@@ -1,11 +1,10 @@
 test_that("Dates calculated correctly", {
-
-  # Monday -> Wednesday = 2
+  # Monday => Wednesday = 2
   monday <- lubridate::ymd("2025-03-10")
   result <- days_until_weekday("Wednesday", date_from = monday)
   expect_equal(result, 2)
 
-  # Wednesday -> Wednesday = 7
+  # Wednesday => Wednesday = 7
   wednesday <- lubridate::ymd("2025-03-12")
   result <- days_until_weekday("Wednesday", date_from = wednesday)
   expect_equal(result, 7)
