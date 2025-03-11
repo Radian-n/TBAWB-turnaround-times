@@ -31,5 +31,5 @@ get_turnaround_times_df <- function(get_table = "film") {
   }
 
   rlang::abort("Unknown parameter provided to argument `get_table`")
-
+  return(NA)
 }
