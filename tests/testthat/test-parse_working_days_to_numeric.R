@@ -9,10 +9,10 @@ test_that("Function parses strings", {
   result <- parse_working_days_to_numeric(c41_string)
 
   expected <- tibble::tibble(
-    'Service' = "C-41",
-    'Develop Only' = 2,
-    'Dev + Scan' = 5,
-    'Prints Add On' = 6
+    "Service" = "C-41",
+    "Develop Only" = 2,
+    "Dev + Scan" = 5,
+    "Prints Add On" = 6
   )
 
   expect_equal(result, expected)
@@ -30,10 +30,10 @@ test_that("Function is case insensitive", {
   result <- parse_working_days_to_numeric(c41_string)
 
   expected <- tibble::tibble(
-    'Service' = "C-41",
-    'Develop Only' = 2,
-    'Dev + Scan' = 5,
-    'Prints Add On' = 6
+    "Service" = "C-41",
+    "Develop Only" = 2,
+    "Dev + Scan" = 5,
+    "Prints Add On" = 6
   )
 
   expect_equal(result, expected)
