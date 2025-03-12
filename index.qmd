@@ -107,17 +107,89 @@ turaround_dates_df <- dplyr::bind_rows(
 )
 ```
 
+```{r}
+turnaround_format_df <- turaround_dates_df |>
+  # Format dates into day-month-year
+  dplyr::mutate(across(where(is.Date), ~ format(.x, "%A %d-%m")))
+```
+
+*As of **`r format(current_datetime, "%A %d %B %Y")`** at `r format(current_datetime, "%H:%M%p")`*
+
+
+#### C-41
 
 ```{r}
-turaround_dates_df |>
-  # Format dates into day-month-year
-  dplyr::mutate(across(where(is.Date), ~ format(.x, "%d-%m-%Y"))) |>
+turnaround_format_df |>
+  dplyr::filter(Service == "C-41") |>
+  dplyr::select(-Service) |>
   knitr::kable()
 ```
 
-_As of **`r format(current_datetime, "%A %d %B %Y")`** at `r format(current_datetime, "%H:%M%p")`_
+\
 
--------
+#### B&W
+
+```{r}
+turnaround_format_df |>
+  dplyr::filter(Service == "B&W") |>
+  dplyr::select(-Service) |>
+  knitr::kable()
+```
+
+\
+
+#### E-6
+
+```{r}
+turnaround_format_df |>
+  dplyr::filter(Service == "E-6") |>
+  dplyr::select(-Service) |>
+  knitr::kable()
+```
+
+\
+
+#### ECN-2
+
+```{r}
+turnaround_format_df |>
+  dplyr::filter(Service == "ECN-2") |>
+  dplyr::select(-Service) |>
+  knitr::kable()
+```
+
+\
+
+#### Souped
+
+```{r}
+turnaround_format_df |>
+  dplyr::filter(Service == "Souped Film") |>
+  dplyr::select(-Service) |>
+  knitr::kable()
+```
+
+\
+
+#### ALT Formats (APS/110/126/127)
+
+```{r}
+turnaround_format_df |>
+  dplyr::filter(Service == "ALT Formats (APS/110/126/127)") |>
+  dplyr::select(-Service) |>
+  knitr::kable()
+```
+
+\
+
+\
+
+
+------------------------------------------------------------------------
+
+\
+
+\
 
 #### Website Turnaround Times
 ```{r}
