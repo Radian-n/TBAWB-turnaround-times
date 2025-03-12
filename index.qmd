@@ -123,7 +123,7 @@ turnaround_format_df <- turaround_dates_df |>
 turnaround_format_df |>
   dplyr::filter(Service == "C-41") |>
   dplyr::select(-Service) |>
-  knitr::kable()
+  create_table()
 ```
 
 \
@@ -134,7 +134,7 @@ turnaround_format_df |>
 turnaround_format_df |>
   dplyr::filter(Service == "B&W") |>
   dplyr::select(-Service) |>
-  knitr::kable()
+  create_table()
 ```
 
 \
@@ -145,7 +145,7 @@ turnaround_format_df |>
 turnaround_format_df |>
   dplyr::filter(Service == "E-6") |>
   dplyr::select(-Service) |>
-  knitr::kable()
+  create_table()
 ```
 
 \
@@ -156,7 +156,7 @@ turnaround_format_df |>
 turnaround_format_df |>
   dplyr::filter(Service == "ECN-2") |>
   dplyr::select(-Service) |>
-  knitr::kable()
+  create_table()
 ```
 
 \
@@ -167,7 +167,7 @@ turnaround_format_df |>
 turnaround_format_df |>
   dplyr::filter(Service == "Souped Film") |>
   dplyr::select(-Service) |>
-  knitr::kable()
+  create_table()
 ```
 
 \
@@ -178,7 +178,7 @@ turnaround_format_df |>
 turnaround_format_df |>
   dplyr::filter(Service == "ALT Formats (APS/110/126/127)") |>
   dplyr::select(-Service) |>
-  knitr::kable()
+  create_table()
 ```
 
 \
