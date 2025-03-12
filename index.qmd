@@ -1,6 +1,8 @@
 ---
-title: "Turnaround Dates"
-format: html
+title: "Turnaround Dates - The Black and White Box"
+format: 
+  html:
+    css: styles.css
 execute:
   echo: false
   warning: false
@@ -19,7 +21,6 @@ library(bizdays)
 
 devtools::load_all()
 ```
-
 
 ```{r}
 #| label: get-current-datetime
@@ -107,19 +108,98 @@ turaround_dates_df <- dplyr::bind_rows(
 )
 ```
 
-
 ```{r}
-turaround_dates_df |>
-  # Format dates into day-month-year
-  dplyr::mutate(across(where(is.Date), ~ format(.x, "%d-%m-%Y"))) |>
-  knitr::kable()
+turnaround_format_df <- turaround_dates_df |>
+  # Format dates into 'weekday day-month-year'
+  dplyr::mutate(across(where(is.Date), ~ format(.x, "%A %d-%m-%y")))
 ```
 
-_As of **`r format(current_datetime, "%A %d %B %Y")`** at `r format(current_datetime, "%H:%M%p")`_
+*As of **`r format(current_datetime, "%A %d %B %Y")`** at `r format(current_datetime, "%H:%M%p")`*
 
--------
+
+#### C-41
+
+```{r}
+#| label: turnaround-date-C41
+turnaround_format_df |>
+  dplyr::filter(Service == "C-41") |>
+  dplyr::select(-Service) |>
+  create_table()
+```
+
+\
+
+#### B&W
+
+```{r}
+#| label: turnaround-date-BW
+turnaround_format_df |>
+  dplyr::filter(Service == "B&W") |>
+  dplyr::select(-Service) |>
+  create_table()
+```
+
+\
+
+#### E-6
+
+```{r}
+#| label: turnaround-date-E6
+turnaround_format_df |>
+  dplyr::filter(Service == "E-6") |>
+  dplyr::select(-Service) |>
+  create_table()
+```
+
+\
+
+#### ECN-2
+
+```{r}
+#| label: turnaround-date-ECN2
+turnaround_format_df |>
+  dplyr::filter(Service == "ECN-2") |>
+  dplyr::select(-Service) |>
+  create_table()
+```
+
+\
+
+#### Souped
+
+```{r}
+#| label: turnaround-date-SOUP
+turnaround_format_df |>
+  dplyr::filter(Service == "Souped Film") |>
+  dplyr::select(-Service) |>
+  create_table()
+```
+
+\
+
+#### ALT Formats (APS/110/126/127)
+
+```{r}
+#| label: turnaround-date-ALT
+turnaround_format_df |>
+  dplyr::filter(Service == "ALT Formats (APS/110/126/127)") |>
+  dplyr::select(-Service) |>
+  create_table()
+```
+
+\
+
+\
+
+
+------------------------------------------------------------------------
+
+\
+
+\
 
 #### Website Turnaround Times
+
 ```{r}
 #| label: display-website-turnaround-days
 
@@ -129,8 +209,10 @@ film_turnaround_df |>
 
 [Source](https://theblackandwhitebox.co.nz/turn-around-times/)
 
+\
 
 #### Upcoming Public Holidays
+
 ```{r}
 #| label: display-upcoming-holidays
 

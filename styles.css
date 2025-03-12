@@ -1,0 +1,23 @@
+h4, h5 {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+#quarto-document-content {
+    padding-top: 0px;
+}
+
+/* Remove title header from page */
+#title-block-header {
+    content-visibility: hidden;
+}
+
+/* Modify the tinytables styling so that the tables are flush with the markdown text */
+div:has(.table) {
+    padding: 0px;
+}
+
+/* Tinytables - tinytable padding adjustment */
+th, td {
+    padding: .25rem .25rem;
+}
