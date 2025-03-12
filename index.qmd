@@ -22,7 +22,6 @@ library(bizdays)
 devtools::load_all()
 ```
 
-
 ```{r}
 #| label: get-current-datetime
 current_datetime <- lubridate::now(tzone = "Pacific/Auckland")
@@ -194,6 +193,7 @@ turnaround_format_df |>
 \
 
 #### Website Turnaround Times
+
 ```{r}
 #| label: display-website-turnaround-days
 
@@ -203,8 +203,10 @@ film_turnaround_df |>
 
 [Source](https://theblackandwhitebox.co.nz/turn-around-times/)
 
+\
 
 #### Upcoming Public Holidays
+
 ```{r}
 #| label: display-upcoming-holidays
 
