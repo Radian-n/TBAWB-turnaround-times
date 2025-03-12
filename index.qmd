@@ -120,6 +120,7 @@ turnaround_format_df <- turaround_dates_df |>
 #### C-41
 
 ```{r}
+#| label: turnaround-date-C41
 turnaround_format_df |>
   dplyr::filter(Service == "C-41") |>
   dplyr::select(-Service) |>
@@ -131,6 +132,7 @@ turnaround_format_df |>
 #### B&W
 
 ```{r}
+#| label: turnaround-date-BW
 turnaround_format_df |>
   dplyr::filter(Service == "B&W") |>
   dplyr::select(-Service) |>
@@ -142,6 +144,7 @@ turnaround_format_df |>
 #### E-6
 
 ```{r}
+#| label: turnaround-date-E6
 turnaround_format_df |>
   dplyr::filter(Service == "E-6") |>
   dplyr::select(-Service) |>
@@ -153,6 +156,7 @@ turnaround_format_df |>
 #### ECN-2
 
 ```{r}
+#| label: turnaround-date-ECN2
 turnaround_format_df |>
   dplyr::filter(Service == "ECN-2") |>
   dplyr::select(-Service) |>
@@ -164,6 +168,7 @@ turnaround_format_df |>
 #### Souped
 
 ```{r}
+#| label: turnaround-date-SOUP
 turnaround_format_df |>
   dplyr::filter(Service == "Souped Film") |>
   dplyr::select(-Service) |>
@@ -175,6 +180,7 @@ turnaround_format_df |>
 #### ALT Formats (APS/110/126/127)
 
 ```{r}
+#| label: turnaround-date-ALT
 turnaround_format_df |>
   dplyr::filter(Service == "ALT Formats (APS/110/126/127)") |>
   dplyr::select(-Service) |>
