@@ -6,3 +6,8 @@ h4, h5 {
 #quarto-document-content {
     padding-top: 0px;
 }
+
+/* Remove title header from page */
+#title-block-header {
+    content-visibility: hidden;
+}
