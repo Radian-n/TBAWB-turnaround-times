@@ -111,7 +111,7 @@ turaround_dates_df <- dplyr::bind_rows(
 ```{r}
 turnaround_format_df <- turaround_dates_df |>
   # Format dates into 'weekday day-month-year'
-  dplyr::mutate(across(where(is.Date), ~ format(.x, "%A %d-%m-%y")))
+  dplyr::mutate(across(where(is.Date), ~ format(.x, "%A - %d %B")))
 ```
 
 *As of **`r format(current_datetime, "%A %d %B %Y")`** at `r format(current_datetime, "%H:%M%p")`*
