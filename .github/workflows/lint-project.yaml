@@ -23,6 +23,6 @@ jobs:
         run: |
           Rscript -e 'install.packages("lintr")'
 
-      - name: Lint
-        run: lintr::lint_dir()
-        shell: Rscript {0}
+      - name: Lint directory
+        run : |
+          Rscript -e 'lintr::lint_dir()'
