@@ -29,6 +29,12 @@ jobs:
         uses: r-lib/actions/setup-renv@v2
         with:
           cache-version: 1
+
+      # Install the package
+      - name: Install TBAWBTurnaroundTimes package
+        run: |
+          R CMD INSTALL .
+
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
