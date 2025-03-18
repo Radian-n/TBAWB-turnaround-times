@@ -19,7 +19,7 @@ library(knitr)
 library(lubridate)
 library(bizdays)
 
-devtools::load_all()
+library(TBAWBTurnaroundTimes)
 ```
 
 ```{r}
