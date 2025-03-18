@@ -182,7 +182,7 @@ test_that("Wednesday public holiday", {
     end.date = lubridate::ymd("2071-01-01"),
   )
 
-  
+
   # Film arrived last Wednesday
   last_wednesday <- lubridate::ymd("2025-03-5")
   result_last_wednesday <- parse_weekdays_to_date(
@@ -247,13 +247,13 @@ test_that("Wednesday public holiday", {
   )
 
   # Tests
-  expect_equal(result_last_wednesday, expected_df) 
-  expect_equal(result_last_thursday, expected_df) 
-  expect_equal(result_last_friday, expected_df) 
-  expect_equal(result_saturday, expected_df) 
-  expect_equal(result_sunday, expected_df) 
-  expect_equal(result_monday, expected_df) 
-  expect_equal(result_tuesday, expected_df) 
+  expect_equal(result_last_wednesday, expected_df)
+  expect_equal(result_last_thursday, expected_df)
+  expect_equal(result_last_friday, expected_df)
+  expect_equal(result_saturday, expected_df)
+  expect_equal(result_sunday, expected_df)
+  expect_equal(result_monday, expected_df)
+  expect_equal(result_tuesday, expected_df)
 })
 
 
@@ -339,13 +339,13 @@ test_that("Thursday public holiday", {
   )
 
   # Tests
-  expect_equal(result_last_wednesday, expected_df) 
-  expect_equal(result_last_thursday, expected_df) 
-  expect_equal(result_last_friday, expected_df) 
-  expect_equal(result_saturday, expected_df) 
-  expect_equal(result_sunday, expected_df) 
-  expect_equal(result_monday, expected_df) 
-  expect_equal(result_tuesday, expected_df) 
+  expect_equal(result_last_wednesday, expected_df)
+  expect_equal(result_last_thursday, expected_df)
+  expect_equal(result_last_friday, expected_df)
+  expect_equal(result_saturday, expected_df)
+  expect_equal(result_sunday, expected_df)
+  expect_equal(result_monday, expected_df)
+  expect_equal(result_tuesday, expected_df)
 })
 
 test_that("Friday public holiday", {
@@ -430,13 +430,13 @@ test_that("Friday public holiday", {
   )
 
   # Tests
-  expect_equal(result_last_wednesday, expected_df) 
-  expect_equal(result_last_thursday, expected_df) 
-  expect_equal(result_last_friday, expected_df) 
-  expect_equal(result_saturday, expected_df) 
-  expect_equal(result_sunday, expected_df) 
-  expect_equal(result_monday, expected_df) 
-  expect_equal(result_tuesday, expected_df) 
+  expect_equal(result_last_wednesday, expected_df)
+  expect_equal(result_last_thursday, expected_df)
+  expect_equal(result_last_friday, expected_df)
+  expect_equal(result_saturday, expected_df)
+  expect_equal(result_sunday, expected_df)
+  expect_equal(result_monday, expected_df)
+  expect_equal(result_tuesday, expected_df)
 })
 
 
@@ -522,13 +522,13 @@ test_that("Wednesday & Thursday are public holiday", {
   )
 
   # Tests
-  expect_equal(result_last_wednesday, expected_df) 
-  expect_equal(result_last_thursday, expected_df) 
-  expect_equal(result_last_friday, expected_df) 
-  expect_equal(result_saturday, expected_df) 
-  expect_equal(result_sunday, expected_df) 
-  expect_equal(result_monday, expected_df) 
-  expect_equal(result_tuesday, expected_df) 
+  expect_equal(result_last_wednesday, expected_df)
+  expect_equal(result_last_thursday, expected_df)
+  expect_equal(result_last_friday, expected_df)
+  expect_equal(result_saturday, expected_df)
+  expect_equal(result_sunday, expected_df)
+  expect_equal(result_monday, expected_df)
+  expect_equal(result_tuesday, expected_df)
 })
 
 
@@ -614,13 +614,13 @@ test_that("Thursday & Friday are public holiday", {
   )
 
   # Tests
-  expect_equal(result_last_wednesday, expected_df) 
-  expect_equal(result_last_thursday, expected_df) 
-  expect_equal(result_last_friday, expected_df) 
-  expect_equal(result_saturday, expected_df) 
-  expect_equal(result_sunday, expected_df) 
-  expect_equal(result_monday, expected_df) 
-  expect_equal(result_tuesday, expected_df) 
+  expect_equal(result_last_wednesday, expected_df)
+  expect_equal(result_last_thursday, expected_df)
+  expect_equal(result_last_friday, expected_df)
+  expect_equal(result_saturday, expected_df)
+  expect_equal(result_sunday, expected_df)
+  expect_equal(result_monday, expected_df)
+  expect_equal(result_tuesday, expected_df)
 })
 
 
@@ -706,13 +706,13 @@ test_that("Wednesday & Thursday & Friday are public holiday", {
   )
 
   # Tests
-  expect_equal(result_last_wednesday, expected_df) 
-  expect_equal(result_last_thursday, expected_df) 
-  expect_equal(result_last_friday, expected_df) 
-  expect_equal(result_saturday, expected_df) 
-  expect_equal(result_sunday, expected_df) 
-  expect_equal(result_monday, expected_df) 
-  expect_equal(result_tuesday, expected_df) 
+  expect_equal(result_last_wednesday, expected_df)
+  expect_equal(result_last_thursday, expected_df)
+  expect_equal(result_last_friday, expected_df)
+  expect_equal(result_saturday, expected_df)
+  expect_equal(result_sunday, expected_df)
+  expect_equal(result_monday, expected_df)
+  expect_equal(result_tuesday, expected_df)
 })
 
 
@@ -798,13 +798,13 @@ test_that("Wednesday & Friday are public holiday", {
   )
 
   # Tests
-  expect_equal(result_last_wednesday, expected_df) 
-  expect_equal(result_last_thursday, expected_df) 
-  expect_equal(result_last_friday, expected_df) 
-  expect_equal(result_saturday, expected_df) 
-  expect_equal(result_sunday, expected_df) 
-  expect_equal(result_monday, expected_df) 
-  expect_equal(result_tuesday, expected_df) 
+  expect_equal(result_last_wednesday, expected_df)
+  expect_equal(result_last_thursday, expected_df)
+  expect_equal(result_last_friday, expected_df)
+  expect_equal(result_saturday, expected_df)
+  expect_equal(result_sunday, expected_df)
+  expect_equal(result_monday, expected_df)
+  expect_equal(result_tuesday, expected_df)
 })
 
 
