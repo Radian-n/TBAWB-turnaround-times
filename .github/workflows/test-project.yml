@@ -36,7 +36,7 @@ jobs:
       # Run unit tests
       - name: Run testthat
         run: |
-          Rscript -e 'library(testthat); testthat::test_dir("tests")'
+          Rscript -e 'testthat::test_dir("tests")'
 
       # Verify index.qmd render
       - name: Render Quarto Project
