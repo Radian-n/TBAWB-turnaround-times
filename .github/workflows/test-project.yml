@@ -28,9 +28,10 @@ jobs:
         with:
           cache-version: 3
 
-      - name: Install devtools
+      # Install the package
+      - name: Install nzageSurveys package
         run: |
-          Rscript -e 'install.packages("devtools")'
+          R CMD INSTALL .
 
       # Run unit tests
       - name: Run testthat
