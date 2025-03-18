@@ -159,6 +159,655 @@ test_that("Film arrives Friday", {
 })
 
 
+# ================== PUBLIC HOLIDAYS ==================
+
+test_that("Wednesday public holiday", {
+
+  # Setup E-6 turnaround time example
+  e6_string_df <- tibble::tibble(
+    "Service" = "E-6",
+    "Develop Only" = "Processed Wednesday",
+    "Dev + Scan" = "Scans Sent Friday",
+    "Prints Add On" = "+ 1 Working Days"
+  )
+
+  # Setup calendar with public holiday on Wednesday
+  test_cal <- bizdays::create.calendar(
+    "test_cal",
+    weekdays = c("saturday", "sunday"),
+    holidays = c(lubridate::ymd("2025-03-12")), # Wednesday holiday
+    start.date = lubridate::ymd("1970-01-01"),
+    end.date = lubridate::ymd("2071-01-01"),
+  )
+
+  
+  # Film arrived last Wednesday
+  last_wednesday <- lubridate::ymd("2025-03-5")
+  result_last_wednesday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_wednesday
+  )
+  # Film arrived last Thursday
+  last_thursday <- lubridate::ymd("2025-03-6")
+  result_last_thursday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_thursday
+  )
+
+  # Film arrived last Friday
+  last_friday <- lubridate::ymd("2025-03-7")
+  result_last_friday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_friday
+  )
+
+  # Film arrived Saturday
+  saturday <- lubridate::ymd("2025-03-8")
+  result_saturday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = saturday
+  )
+
+  # Film arrived Sunday
+  sunday <- lubridate::ymd("2025-03-9")
+  result_sunday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = sunday
+  )
+
+  # Film arrived Monday
+  monday <- lubridate::ymd("2025-03-10")
+  result_monday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = monday
+  )
+
+  # Film arrived Tuesday
+  tuesday <- lubridate::ymd("2025-03-11")
+  result_tuesday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = tuesday
+  )
+
+  # Regardless of arrival day, due dates should be identical
+  expected_df <- tibble::tibble(
+    "Service" = "E-6",
+    "Develop Only" = lubridate::ymd("2025-03-14"),
+    "Dev + Scan" = lubridate::ymd("2025-03-17"),
+    "Prints Add On" = lubridate::ymd("2025-03-18")
+  )
+
+  # Tests
+  expect_equal(result_last_wednesday, expected_df) 
+  expect_equal(result_last_thursday, expected_df) 
+  expect_equal(result_last_friday, expected_df) 
+  expect_equal(result_saturday, expected_df) 
+  expect_equal(result_sunday, expected_df) 
+  expect_equal(result_monday, expected_df) 
+  expect_equal(result_tuesday, expected_df) 
+})
+
+
+test_that("Thursday public holiday", {
+  # Setup E-6 turnaround time example
+  e6_string_df <- tibble::tibble(
+    "Service" = "E-6",
+    "Develop Only" = "Processed Wednesday",
+    "Dev + Scan" = "Scans Sent Friday",
+    "Prints Add On" = "+ 1 Working Days"
+  )
+
+  # Setup calendar with public holiday on Wednesday
+  test_cal <- bizdays::create.calendar(
+    "test_cal",
+    weekdays = c("saturday", "sunday"),
+    holidays = c(lubridate::ymd("2025-03-13")), # Thursday holiday
+    start.date = lubridate::ymd("1970-01-01"),
+    end.date = lubridate::ymd("2071-01-01"),
+  )
+
+  # Film arrived last Wednesday
+  last_wednesday <- lubridate::ymd("2025-03-5")
+  result_last_wednesday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_wednesday
+  )
+  # Film arrived last Thursday
+  last_thursday <- lubridate::ymd("2025-03-6")
+  result_last_thursday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_thursday
+  )
+
+  # Film arrived last Friday
+  last_friday <- lubridate::ymd("2025-03-7")
+  result_last_friday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_friday
+  )
+
+  # Film arrived Saturday
+  saturday <- lubridate::ymd("2025-03-8")
+  result_saturday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = saturday
+  )
+
+  # Film arrived Sunday
+  sunday <- lubridate::ymd("2025-03-9")
+  result_sunday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = sunday
+  )
+
+  # Film arrived Monday
+  monday <- lubridate::ymd("2025-03-10")
+  result_monday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = monday
+  )
+
+  # Film arrived Tuesday
+  tuesday <- lubridate::ymd("2025-03-11")
+  result_tuesday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = tuesday
+  )
+
+  # Regardless of arrival day, due dates should be identical
+  expected_df <- tibble::tibble(
+    "Service" = "E-6",
+    "Develop Only" = lubridate::ymd("2025-03-14"),
+    "Dev + Scan" = lubridate::ymd("2025-03-17"),
+    "Prints Add On" = lubridate::ymd("2025-03-18")
+  )
+
+  # Tests
+  expect_equal(result_last_wednesday, expected_df) 
+  expect_equal(result_last_thursday, expected_df) 
+  expect_equal(result_last_friday, expected_df) 
+  expect_equal(result_saturday, expected_df) 
+  expect_equal(result_sunday, expected_df) 
+  expect_equal(result_monday, expected_df) 
+  expect_equal(result_tuesday, expected_df) 
+})
+
+test_that("Friday public holiday", {
+  # Setup E-6 turnaround time example
+  e6_string_df <- tibble::tibble(
+    "Service" = "E-6",
+    "Develop Only" = "Processed Wednesday",
+    "Dev + Scan" = "Scans Sent Friday",
+    "Prints Add On" = "+ 1 Working Days"
+  )
+
+  # Setup calendar with public holiday on Wednesday
+  test_cal <- bizdays::create.calendar(
+    "test_cal",
+    weekdays = c("saturday", "sunday"),
+    holidays = c(lubridate::ymd("2025-03-14")), # Friday holiday
+    start.date = lubridate::ymd("1970-01-01"),
+    end.date = lubridate::ymd("2071-01-01"),
+  )
+
+  # Film arrived last Wednesday
+  last_wednesday <- lubridate::ymd("2025-03-5")
+  result_last_wednesday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_wednesday
+  )
+  # Film arrived last Thursday
+  last_thursday <- lubridate::ymd("2025-03-6")
+  result_last_thursday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_thursday
+  )
+
+  # Film arrived last Friday
+  last_friday <- lubridate::ymd("2025-03-7")
+  result_last_friday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_friday
+  )
+
+  # Film arrived Saturday
+  saturday <- lubridate::ymd("2025-03-8")
+  result_saturday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = saturday
+  )
+
+  # Film arrived Sunday
+  sunday <- lubridate::ymd("2025-03-9")
+  result_sunday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = sunday
+  )
+
+  # Film arrived Monday
+  monday <- lubridate::ymd("2025-03-10")
+  result_monday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = monday
+  )
+
+  # Film arrived Tuesday
+  tuesday <- lubridate::ymd("2025-03-11")
+  result_tuesday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = tuesday
+  )
+
+  # Regardless of arrival day, due dates should be identical
+  expected_df <- tibble::tibble(
+    "Service" = "E-6",
+    "Develop Only" = lubridate::ymd("2025-03-13"),
+    "Dev + Scan" = lubridate::ymd("2025-03-17"),
+    "Prints Add On" = lubridate::ymd("2025-03-18")
+  )
+
+  # Tests
+  expect_equal(result_last_wednesday, expected_df) 
+  expect_equal(result_last_thursday, expected_df) 
+  expect_equal(result_last_friday, expected_df) 
+  expect_equal(result_saturday, expected_df) 
+  expect_equal(result_sunday, expected_df) 
+  expect_equal(result_monday, expected_df) 
+  expect_equal(result_tuesday, expected_df) 
+})
+
+
+test_that("Wednesday & Thursday are public holiday", {
+  # Setup E-6 turnaround time example
+  e6_string_df <- tibble::tibble(
+    "Service" = "E-6",
+    "Develop Only" = "Processed Wednesday",
+    "Dev + Scan" = "Scans Sent Friday",
+    "Prints Add On" = "+ 1 Working Days"
+  )
+
+  # Setup calendar with public holiday on Wednesday
+  test_cal <- bizdays::create.calendar(
+    "test_cal",
+    weekdays = c("saturday", "sunday"),
+    holidays = lubridate::ymd(c("2025-03-12"), c("2025-03-13")), # Friday holiday
+    start.date = lubridate::ymd("1970-01-01"),
+    end.date = lubridate::ymd("2071-01-01"),
+  )
+
+  # Film arrived last Wednesday
+  last_wednesday <- lubridate::ymd("2025-03-5")
+  result_last_wednesday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_wednesday
+  )
+  # Film arrived last Thursday
+  last_thursday <- lubridate::ymd("2025-03-6")
+  result_last_thursday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_thursday
+  )
+
+  # Film arrived last Friday
+  last_friday <- lubridate::ymd("2025-03-7")
+  result_last_friday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_friday
+  )
+
+  # Film arrived Saturday
+  saturday <- lubridate::ymd("2025-03-8")
+  result_saturday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = saturday
+  )
+
+  # Film arrived Sunday
+  sunday <- lubridate::ymd("2025-03-9")
+  result_sunday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = sunday
+  )
+
+  # Film arrived Monday
+  monday <- lubridate::ymd("2025-03-10")
+  result_monday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = monday
+  )
+
+  # Film arrived Tuesday
+  tuesday <- lubridate::ymd("2025-03-11")
+  result_tuesday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = tuesday
+  )
+
+  # Regardless of arrival day, due dates should be identical
+  expected_df <- tibble::tibble(
+    "Service" = "E-6",
+    "Develop Only" = lubridate::ymd("2025-03-17"),
+    "Dev + Scan" = lubridate::ymd("2025-03-18"),
+    "Prints Add On" = lubridate::ymd("2025-03-19")
+  )
+
+  # Tests
+  expect_equal(result_last_wednesday, expected_df) 
+  expect_equal(result_last_thursday, expected_df) 
+  expect_equal(result_last_friday, expected_df) 
+  expect_equal(result_saturday, expected_df) 
+  expect_equal(result_sunday, expected_df) 
+  expect_equal(result_monday, expected_df) 
+  expect_equal(result_tuesday, expected_df) 
+})
+
+
+test_that("Thursday & Friday are public holiday", {
+  # Setup E-6 turnaround time example
+  e6_string_df <- tibble::tibble(
+    "Service" = "E-6",
+    "Develop Only" = "Processed Wednesday",
+    "Dev + Scan" = "Scans Sent Friday",
+    "Prints Add On" = "+ 1 Working Days"
+  )
+
+  # Setup calendar with public holiday on Wednesday
+  test_cal <- bizdays::create.calendar(
+    "test_cal",
+    weekdays = c("saturday", "sunday"),
+    holidays = lubridate::ymd(c("2025-03-13"), c("2025-03-14")), # Friday holiday
+    start.date = lubridate::ymd("1970-01-01"),
+    end.date = lubridate::ymd("2071-01-01"),
+  )
+
+  # Film arrived last Wednesday
+  last_wednesday <- lubridate::ymd("2025-03-5")
+  result_last_wednesday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_wednesday
+  )
+  # Film arrived last Thursday
+  last_thursday <- lubridate::ymd("2025-03-6")
+  result_last_thursday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_thursday
+  )
+
+  # Film arrived last Friday
+  last_friday <- lubridate::ymd("2025-03-7")
+  result_last_friday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_friday
+  )
+
+  # Film arrived Saturday
+  saturday <- lubridate::ymd("2025-03-8")
+  result_saturday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = saturday
+  )
+
+  # Film arrived Sunday
+  sunday <- lubridate::ymd("2025-03-9")
+  result_sunday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = sunday
+  )
+
+  # Film arrived Monday
+  monday <- lubridate::ymd("2025-03-10")
+  result_monday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = monday
+  )
+
+  # Film arrived Tuesday
+  tuesday <- lubridate::ymd("2025-03-11")
+  result_tuesday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = tuesday
+  )
+
+  # Regardless of arrival day, due dates should be identical
+  expected_df <- tibble::tibble(
+    "Service" = "E-6",
+    "Develop Only" = lubridate::ymd("2025-03-17"),
+    "Dev + Scan" = lubridate::ymd("2025-03-18"),
+    "Prints Add On" = lubridate::ymd("2025-03-19")
+  )
+
+  # Tests
+  expect_equal(result_last_wednesday, expected_df) 
+  expect_equal(result_last_thursday, expected_df) 
+  expect_equal(result_last_friday, expected_df) 
+  expect_equal(result_saturday, expected_df) 
+  expect_equal(result_sunday, expected_df) 
+  expect_equal(result_monday, expected_df) 
+  expect_equal(result_tuesday, expected_df) 
+})
+
+
+test_that("Wednesday & Thursday & Friday are public holiday", {
+  # Setup E-6 turnaround time example
+  e6_string_df <- tibble::tibble(
+    "Service" = "E-6",
+    "Develop Only" = "Processed Wednesday",
+    "Dev + Scan" = "Scans Sent Friday",
+    "Prints Add On" = "+ 1 Working Days"
+  )
+
+  # Setup calendar with public holiday on Wednesday
+  test_cal <- bizdays::create.calendar(
+    "test_cal",
+    weekdays = c("saturday", "sunday"),
+    holidays = lubridate::ymd(c("2025-03-12"), c("2025-03-13"), c("2025-03-14")), # Friday holiday
+    start.date = lubridate::ymd("1970-01-01"),
+    end.date = lubridate::ymd("2071-01-01"),
+  )
+
+  # Film arrived last Wednesday
+  last_wednesday <- lubridate::ymd("2025-03-5")
+  result_last_wednesday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_wednesday
+  )
+  # Film arrived last Thursday
+  last_thursday <- lubridate::ymd("2025-03-6")
+  result_last_thursday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_thursday
+  )
+
+  # Film arrived last Friday
+  last_friday <- lubridate::ymd("2025-03-7")
+  result_last_friday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_friday
+  )
+
+  # Film arrived Saturday
+  saturday <- lubridate::ymd("2025-03-8")
+  result_saturday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = saturday
+  )
+
+  # Film arrived Sunday
+  sunday <- lubridate::ymd("2025-03-9")
+  result_sunday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = sunday
+  )
+
+  # Film arrived Monday
+  monday <- lubridate::ymd("2025-03-10")
+  result_monday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = monday
+  )
+
+  # Film arrived Tuesday
+  tuesday <- lubridate::ymd("2025-03-11")
+  result_tuesday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = tuesday
+  )
+
+  # Regardless of arrival day, due dates should be identical
+  expected_df <- tibble::tibble(
+    "Service" = "E-6",
+    "Develop Only" = lubridate::ymd("2025-03-18"),
+    "Dev + Scan" = lubridate::ymd("2025-03-19"),
+    "Prints Add On" = lubridate::ymd("2025-03-20")
+  )
+
+  # Tests
+  expect_equal(result_last_wednesday, expected_df) 
+  expect_equal(result_last_thursday, expected_df) 
+  expect_equal(result_last_friday, expected_df) 
+  expect_equal(result_saturday, expected_df) 
+  expect_equal(result_sunday, expected_df) 
+  expect_equal(result_monday, expected_df) 
+  expect_equal(result_tuesday, expected_df) 
+})
+
+
+test_that("Wednesday & Friday are public holiday", {
+  # Setup E-6 turnaround time example
+  e6_string_df <- tibble::tibble(
+    "Service" = "E-6",
+    "Develop Only" = "Processed Wednesday",
+    "Dev + Scan" = "Scans Sent Friday",
+    "Prints Add On" = "+ 1 Working Days"
+  )
+
+  # Setup calendar with public holiday on Wednesday
+  test_cal <- bizdays::create.calendar(
+    "test_cal",
+    weekdays = c("saturday", "sunday"),
+    holidays = lubridate::ymd(c("2025-03-12"), c("2025-03-14")), # Friday holiday
+    start.date = lubridate::ymd("1970-01-01"),
+    end.date = lubridate::ymd("2071-01-01"),
+  )
+
+  # Film arrived last Wednesday
+  last_wednesday <- lubridate::ymd("2025-03-5")
+  result_last_wednesday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_wednesday
+  )
+  # Film arrived last Thursday
+  last_thursday <- lubridate::ymd("2025-03-6")
+  result_last_thursday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_thursday
+  )
+
+  # Film arrived last Friday
+  last_friday <- lubridate::ymd("2025-03-7")
+  result_last_friday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = last_friday
+  )
+
+  # Film arrived Saturday
+  saturday <- lubridate::ymd("2025-03-8")
+  result_saturday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = saturday
+  )
+
+  # Film arrived Sunday
+  sunday <- lubridate::ymd("2025-03-9")
+  result_sunday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = sunday
+  )
+
+  # Film arrived Monday
+  monday <- lubridate::ymd("2025-03-10")
+  result_monday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = monday
+  )
+
+  # Film arrived Tuesday
+  tuesday <- lubridate::ymd("2025-03-11")
+  result_tuesday <- parse_weekdays_to_date(
+    e6_string_df,
+    biz_calendar_name = "test_cal",
+    date_today = tuesday
+  )
+
+  # Regardless of arrival day, due dates should be identical
+  expected_df <- tibble::tibble(
+    "Service" = "E-6",
+    "Develop Only" = lubridate::ymd("2025-03-17"),
+    "Dev + Scan" = lubridate::ymd("2025-03-18"),
+    "Prints Add On" = lubridate::ymd("2025-03-19")
+  )
+
+  # Tests
+  expect_equal(result_last_wednesday, expected_df) 
+  expect_equal(result_last_thursday, expected_df) 
+  expect_equal(result_last_friday, expected_df) 
+  expect_equal(result_saturday, expected_df) 
+  expect_equal(result_sunday, expected_df) 
+  expect_equal(result_monday, expected_df) 
+  expect_equal(result_tuesday, expected_df) 
+})
+
+
+# ================== ARGUMENT CHECKS ==================
+
 test_that("Function parameter checks work correctly", {
   test_date <- lubridate::ymd("2025-03-10")
   test_cal <- bizdays::create.calendar(

@@ -133,8 +133,27 @@ parse_weekdays_to_date <- function(
     )
   }
 
+  # dev_only_date is always a thursday
+  thursday <- date_today + dev_only_days
   dev_only_date <- date_today + dev_only_days
   dev_and_scan_date <- date_today + dev_and_scan_days
+
+  # Returns the next business day if Wednesday is a public holiday
+  if (!bizdays::is.bizday(thursday - 1, biz_calendar_name)) {
+    dev_only_date <- bizdays::offset(dev_only_date, 1, biz_calendar_name)
+    dev_and_scan_date <- bizdays::offset(dev_and_scan_date, 1, biz_calendar_name)
+  }
+  # Returns the next business day if Thursday is a public holiday
+  if (!bizdays::is.bizday(thursday, biz_calendar_name)) {
+    dev_only_date <- bizdays::offset(dev_only_date, 1, biz_calendar_name)
+    dev_and_scan_date <- bizdays::offset(dev_and_scan_date, 1, biz_calendar_name)
+  }
+  # Returns the next business day if Friday is a public holiday
+  if (!bizdays::is.bizday(thursday + 1, biz_calendar_name)) {
+    # No dev_only_date because it is completed on Thursday
+    dev_and_scan_date <- bizdays::offset(dev_and_scan_date, 1, biz_calendar_name)
+  }
+
   prints_add_on_date <- bizdays::offset(dev_and_scan_date, 1, biz_calendar_name) # 1 extra business day
 
   result_df <- tibble::tibble(
