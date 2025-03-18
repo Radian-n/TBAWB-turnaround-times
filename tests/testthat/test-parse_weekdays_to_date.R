@@ -1,3 +1,5 @@
+# ================== NO PUBLIC HOLIDAYS ==================
+
 test_that("Film arrives Saturday Sunday Monday Tuesday", {
   # Setup mock date and test calendar. These are required by the function.
   test_cal <- bizdays::create.calendar(
