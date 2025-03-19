@@ -46,8 +46,8 @@
 #' )
 #' parse_digits_to_dates(
 #'   c41_working_days,
-#'   biz_calendar_name = test_cal,
-#'   current_date = today
+#'   current_date = today,
+#'   biz_calendar_name = test_cal
 #' )
 #' # # A tibble: 1 × 4
 #' #   Service `Develop Only` `Dev + Scan` `Prints Add On`
@@ -57,8 +57,8 @@
 #'
 parse_digits_to_dates <- function(
   process_row_df,
-  biz_calendar_name = "bawb_calendar",
-  current_date = lubridate::today(tzone = "Pacific/Auckland")
+  current_date,
+  biz_calendar_name = "bawb_calendar"
 ) {
   # Argument: process_row_df
   assertthat::assert_that(

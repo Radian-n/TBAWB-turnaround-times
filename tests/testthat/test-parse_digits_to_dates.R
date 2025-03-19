@@ -187,48 +187,48 @@ test_that("Function parameter checks work correctly", {
   expect_error(
     parse_digits_to_dates(
       "not a dataframe",
-      biz_calendar_name = "test_cal",
-      current_date = test_date
+      current_date = test_date,
+      biz_calendar_name = "test_cal"
     )
   )
   # Missing column
   expect_error(
     parse_digits_to_dates(
       input_df[, -3],
-      biz_calendar_name = "test_cal",
-      current_date = test_date
+      current_date = test_date,
+      biz_calendar_name = "test_cal"
     )
   )
   # More than 1 row
   expect_error(
     parse_digits_to_dates(
       input_df |> dplyr::add_row(input_df[1, ]),
-      biz_calendar_name = "test_cal",
-      current_date = test_date
+      current_date = test_date,
+      biz_calendar_name = "test_cal"
     )
   )
   # Incorrect column name
   expect_error(
     parse_digits_to_dates(
       input_df |> dplyr::rename(wrong_name = `Prints Add On`),
-      biz_calendar_name = "test_cal",
-      current_date = test_date
+      current_date = test_date,
+      biz_calendar_name = "test_cal"
     )
   )
   # E-6 row not allowed
   expect_error(
     parse_digits_to_dates(
       input_df |> dplyr::mutate(`Service` = "E-6"),
-      biz_calendar_name = "test_cal",
-      current_date = test_date
+      current_date = test_date,
+      biz_calendar_name = "test_cal"
     )
   )
   # biz_calendar_name type check
   expect_error(
     parse_digits_to_dates(
       input_df,
-      biz_calendar_name = test_cal, # Calendar object, not string.
-      current_date = test_date
+      current_date = test_date,
+      biz_calendar_name = test_cal  # Calendar object, not string.
     ),
     regexp = "`biz_calendar_name` must be a string.*"
   )
@@ -236,24 +236,24 @@ test_that("Function parameter checks work correctly", {
   expect_error(
     parse_digits_to_dates(
       input_df,
-      biz_calendar_name = "not an existing calendar",
-      current_date = test_date
+      current_date = test_date,
+      biz_calendar_name = "not an existing calendar"
     )
   )
   # current_date is a Date
   expect_error(
     parse_digits_to_dates(
       input_df,
-      biz_calendar_name = "test_cal",
-      current_date = "Not a date"
+      current_date = "Not a date",
+      biz_calendar_name = "test_cal"
     )
   )
   # current_date is a single date
   expect_error(
     parse_digits_to_dates(
       input_df,
+      current_date = c(test_date, test_date),
       biz_calendar_name = "test_cal",
-      current_date = c(test_date, test_date)
     )
   )
 })
