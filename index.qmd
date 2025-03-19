@@ -71,12 +71,12 @@ film_turnaround_df <- get_turnaround_times_df(get_table = "film")
 c41_df <- film_turnaround_df |>
   dplyr::filter(Service == "C-41") |>
   parse_working_days_to_numeric() |>
-  parse_digits_to_dates()
+  parse_digits_to_dates(current_date = current_date)
 
 bw_df <- film_turnaround_df |>
   dplyr::filter(Service == "B&W") |>
   parse_working_days_to_numeric() |>
-  parse_digits_to_dates()
+  parse_digits_to_dates(current_date = current_date)
 
 e6_df <- film_turnaround_df |>
   dplyr::filter(Service == "E-6") |>
@@ -85,17 +85,17 @@ e6_df <- film_turnaround_df |>
 ecn2_df <- film_turnaround_df |>
   dplyr::filter(Service == "ECN-2") |>
   parse_working_days_to_numeric() |>
-  parse_digits_to_dates()
+  parse_digits_to_dates(current_date = current_date)
 
 souped_df <- film_turnaround_df |>
   dplyr::filter(Service == "Souped Film") |>
   parse_working_days_to_numeric() |>
-  parse_digits_to_dates()
+  parse_digits_to_dates(current_date = current_date)
 
 alt_df <- film_turnaround_df |>
   dplyr::filter(stringr::str_detect(Service, "^ALT Format.*")) |>
   parse_working_days_to_numeric() |>
-  parse_digits_to_dates()
+  parse_digits_to_dates(current_date = current_date)
 
 
 turaround_dates_df <- dplyr::bind_rows(
