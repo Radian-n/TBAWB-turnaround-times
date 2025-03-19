@@ -18,8 +18,8 @@ test_that("Film arrives Saturday Sunday Monday Tuesday", {
   saturday <- lubridate::ymd("2025-03-08")
   result <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = saturday
+    date_today = saturday,
+    biz_calendar_name = "test_cal"
   )
   expected <- tibble::tibble(
     "Service" = "E-6",
@@ -33,8 +33,8 @@ test_that("Film arrives Saturday Sunday Monday Tuesday", {
   sunday <- lubridate::ymd("2025-03-09")
   result <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = sunday
+    date_today = sunday,
+    biz_calendar_name = "test_cal"
   )
   expected <- tibble::tibble(
     "Service" = "E-6",
@@ -48,8 +48,8 @@ test_that("Film arrives Saturday Sunday Monday Tuesday", {
   monday <- lubridate::ymd("2025-03-10")
   result <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = monday
+    date_today = monday,
+    biz_calendar_name = "test_cal"
   )
   expected <- tibble::tibble(
     "Service" = "E-6",
@@ -63,8 +63,8 @@ test_that("Film arrives Saturday Sunday Monday Tuesday", {
   tuesday <- lubridate::ymd("2025-03-11")
   result <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = tuesday
+    date_today = tuesday,
+    biz_calendar_name = "test_cal"
   )
   expected <- tibble::tibble(
     "Service" = "E-6",
@@ -92,8 +92,8 @@ test_that("Film arrives Wednesday", {
 
   result <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = wednesday
+    date_today = wednesday,
+    biz_calendar_name = "test_cal"
   )
   expected <- tibble::tibble(
     "Service" = "E-6",
@@ -120,8 +120,8 @@ test_that("Film arrives Thursday", {
 
   result <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = thursday
+    date_today = thursday,
+    biz_calendar_name = "test_cal"
   )
   expected <- tibble::tibble(
     "Service" = "E-6",
@@ -148,8 +148,8 @@ test_that("Film arrives Friday", {
 
   result <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = friday
+    date_today = friday,
+    biz_calendar_name = "test_cal"
   )
   expected <- tibble::tibble(
     "Service" = "E-6",
@@ -187,55 +187,55 @@ test_that("Wednesday public holiday", {
   last_wednesday <- lubridate::ymd("2025-03-5")
   result_last_wednesday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_wednesday
+    date_today = last_wednesday,
+    biz_calendar_name = "test_cal"
   )
   # Film arrived last Thursday
   last_thursday <- lubridate::ymd("2025-03-6")
   result_last_thursday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_thursday
+    date_today = last_thursday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived last Friday
   last_friday <- lubridate::ymd("2025-03-7")
   result_last_friday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_friday
+    date_today = last_friday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Saturday
   saturday <- lubridate::ymd("2025-03-8")
   result_saturday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = saturday
+    date_today = saturday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Sunday
   sunday <- lubridate::ymd("2025-03-9")
   result_sunday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = sunday
+    date_today = sunday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Monday
   monday <- lubridate::ymd("2025-03-10")
   result_monday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = monday
+    date_today = monday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Tuesday
   tuesday <- lubridate::ymd("2025-03-11")
   result_tuesday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = tuesday
+    date_today = tuesday,
+    biz_calendar_name = "test_cal"
   )
 
   # Regardless of arrival day, due dates should be identical
@@ -286,48 +286,48 @@ test_that("Thursday public holiday", {
   last_thursday <- lubridate::ymd("2025-03-6")
   result_last_thursday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_thursday
+    date_today = last_thursday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived last Friday
   last_friday <- lubridate::ymd("2025-03-7")
   result_last_friday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_friday
+    date_today = last_friday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Saturday
   saturday <- lubridate::ymd("2025-03-8")
   result_saturday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = saturday
+    date_today = saturday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Sunday
   sunday <- lubridate::ymd("2025-03-9")
   result_sunday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = sunday
+    date_today = sunday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Monday
   monday <- lubridate::ymd("2025-03-10")
   result_monday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = monday
+    date_today = monday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Tuesday
   tuesday <- lubridate::ymd("2025-03-11")
   result_tuesday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = tuesday
+    date_today = tuesday,
+    biz_calendar_name = "test_cal"
   )
 
   # Regardless of arrival day, due dates should be identical
@@ -370,55 +370,55 @@ test_that("Friday public holiday", {
   last_wednesday <- lubridate::ymd("2025-03-5")
   result_last_wednesday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_wednesday
+    date_today = last_wednesday,
+    biz_calendar_name = "test_cal"
   )
   # Film arrived last Thursday
   last_thursday <- lubridate::ymd("2025-03-6")
   result_last_thursday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_thursday
+    date_today = last_thursday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived last Friday
   last_friday <- lubridate::ymd("2025-03-7")
   result_last_friday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_friday
+    date_today = last_friday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Saturday
   saturday <- lubridate::ymd("2025-03-8")
   result_saturday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = saturday
+    date_today = saturday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Sunday
   sunday <- lubridate::ymd("2025-03-9")
   result_sunday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = sunday
+    date_today = sunday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Monday
   monday <- lubridate::ymd("2025-03-10")
   result_monday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = monday
+    date_today = monday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Tuesday
   tuesday <- lubridate::ymd("2025-03-11")
   result_tuesday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = tuesday
+    date_today = tuesday,
+    biz_calendar_name = "test_cal"
   )
 
   # Regardless of arrival day, due dates should be identical
@@ -462,55 +462,55 @@ test_that("Wednesday & Thursday are public holiday", {
   last_wednesday <- lubridate::ymd("2025-03-5")
   result_last_wednesday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_wednesday
+    date_today = last_wednesday,
+    biz_calendar_name = "test_cal"
   )
   # Film arrived last Thursday
   last_thursday <- lubridate::ymd("2025-03-6")
   result_last_thursday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_thursday
+    date_today = last_thursday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived last Friday
   last_friday <- lubridate::ymd("2025-03-7")
   result_last_friday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_friday
+    date_today = last_friday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Saturday
   saturday <- lubridate::ymd("2025-03-8")
   result_saturday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = saturday
+    date_today = saturday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Sunday
   sunday <- lubridate::ymd("2025-03-9")
   result_sunday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = sunday
+    date_today = sunday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Monday
   monday <- lubridate::ymd("2025-03-10")
   result_monday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = monday
+    date_today = monday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Tuesday
   tuesday <- lubridate::ymd("2025-03-11")
   result_tuesday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = tuesday
+    date_today = tuesday,
+    biz_calendar_name = "test_cal"
   )
 
   # Regardless of arrival day, due dates should be identical
@@ -554,55 +554,55 @@ test_that("Thursday & Friday are public holiday", {
   last_wednesday <- lubridate::ymd("2025-03-5")
   result_last_wednesday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_wednesday
+    date_today = last_wednesday,
+    biz_calendar_name = "test_cal"
   )
   # Film arrived last Thursday
   last_thursday <- lubridate::ymd("2025-03-6")
   result_last_thursday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_thursday
+    date_today = last_thursday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived last Friday
   last_friday <- lubridate::ymd("2025-03-7")
   result_last_friday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_friday
+    date_today = last_friday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Saturday
   saturday <- lubridate::ymd("2025-03-8")
   result_saturday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = saturday
+    date_today = saturday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Sunday
   sunday <- lubridate::ymd("2025-03-9")
   result_sunday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = sunday
+    date_today = sunday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Monday
   monday <- lubridate::ymd("2025-03-10")
   result_monday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = monday
+    date_today = monday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Tuesday
   tuesday <- lubridate::ymd("2025-03-11")
   result_tuesday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = tuesday
+    date_today = tuesday,
+    biz_calendar_name = "test_cal"
   )
 
   # Regardless of arrival day, due dates should be identical
@@ -646,55 +646,55 @@ test_that("Wednesday & Thursday & Friday are public holiday", {
   last_wednesday <- lubridate::ymd("2025-03-5")
   result_last_wednesday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_wednesday
+    date_today = last_wednesday,
+    biz_calendar_name = "test_cal"
   )
   # Film arrived last Thursday
   last_thursday <- lubridate::ymd("2025-03-6")
   result_last_thursday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_thursday
+    date_today = last_thursday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived last Friday
   last_friday <- lubridate::ymd("2025-03-7")
   result_last_friday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_friday
+    date_today = last_friday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Saturday
   saturday <- lubridate::ymd("2025-03-8")
   result_saturday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = saturday
+    date_today = saturday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Sunday
   sunday <- lubridate::ymd("2025-03-9")
   result_sunday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = sunday
+    date_today = sunday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Monday
   monday <- lubridate::ymd("2025-03-10")
   result_monday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = monday
+    date_today = monday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Tuesday
   tuesday <- lubridate::ymd("2025-03-11")
   result_tuesday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = tuesday
+    date_today = tuesday,
+    biz_calendar_name = "test_cal"
   )
 
   # Regardless of arrival day, due dates should be identical
@@ -738,55 +738,55 @@ test_that("Wednesday & Friday are public holiday", {
   last_wednesday <- lubridate::ymd("2025-03-5")
   result_last_wednesday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_wednesday
+    date_today = last_wednesday,
+    biz_calendar_name = "test_cal"
   )
   # Film arrived last Thursday
   last_thursday <- lubridate::ymd("2025-03-6")
   result_last_thursday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_thursday
+    date_today = last_thursday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived last Friday
   last_friday <- lubridate::ymd("2025-03-7")
   result_last_friday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = last_friday
+    date_today = last_friday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Saturday
   saturday <- lubridate::ymd("2025-03-8")
   result_saturday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = saturday
+    date_today = saturday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Sunday
   sunday <- lubridate::ymd("2025-03-9")
   result_sunday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = sunday
+    date_today = sunday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Monday
   monday <- lubridate::ymd("2025-03-10")
   result_monday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = monday
+    date_today = monday,
+    biz_calendar_name = "test_cal"
   )
 
   # Film arrived Tuesday
   tuesday <- lubridate::ymd("2025-03-11")
   result_tuesday <- parse_weekdays_to_date(
     e6_string_df,
-    biz_calendar_name = "test_cal",
-    date_today = tuesday
+    date_today = tuesday,
+    biz_calendar_name = "test_cal"
   )
 
   # Regardless of arrival day, due dates should be identical
@@ -828,8 +828,8 @@ test_that("Function parameter checks work correctly", {
   expect_error(
     parse_weekdays_to_date(
       "not a dataframe",
-      biz_calendar_name = "test_cal",
-      date_today = test_date
+      date_today = test_date,
+      biz_calendar_name = "test_cal"
     ),
     regexp = "`process_row_df` must be a dataframe"
   )
@@ -837,8 +837,8 @@ test_that("Function parameter checks work correctly", {
   expect_error(
     parse_weekdays_to_date(
       input_df[, -3],
-      biz_calendar_name = "test_cal",
-      date_today = test_date
+      date_today = test_date,
+      biz_calendar_name = "test_cal"
     ),
     regexp = "`process_row_df` must have 1 row and 4 columns"
   )
@@ -846,8 +846,8 @@ test_that("Function parameter checks work correctly", {
   expect_error(
     parse_weekdays_to_date(
       input_df |> dplyr::add_row(input_df[1, ]),
-      biz_calendar_name = "test_cal",
-      date_today = test_date
+      date_today = test_date,
+      biz_calendar_name = "test_cal"
     ),
     regexp = "`process_row_df` must have 1 row and 4 columns"
   )
@@ -855,8 +855,8 @@ test_that("Function parameter checks work correctly", {
   expect_error(
     parse_weekdays_to_date(
       input_df |> dplyr::rename(wrong_name = `Prints Add On`),
-      biz_calendar_name = "test_cal",
-      date_today = test_date
+      date_today = test_date,
+      biz_calendar_name = "test_cal"
     ),
     regexp = "`process_row_df` must have column names:.*"
   )
@@ -864,8 +864,8 @@ test_that("Function parameter checks work correctly", {
   expect_error(
     parse_weekdays_to_date(
       input_df |> dplyr::mutate(`Service` = "C-41"),
-      biz_calendar_name = "test_cal",
-      date_today = test_date
+      date_today = test_date,
+      biz_calendar_name = "test_cal"
     ),
     regexp = "This function should only be used to handle E-6 turnaround time.*"
   )
@@ -873,8 +873,8 @@ test_that("Function parameter checks work correctly", {
   expect_error(
     parse_weekdays_to_date(
       input_df,
-      biz_calendar_name = test_cal, # Calendar object, not string.
-      date_today = test_date
+      date_today = test_date,
+      biz_calendar_name = test_cal  # Calendar object, not string.
     ),
     regexp = "`biz_calendar_name` must be a string.*"
   )
@@ -882,8 +882,8 @@ test_that("Function parameter checks work correctly", {
   expect_error(
     parse_weekdays_to_date(
       input_df,
-      biz_calendar_name = "not an existing calendar",
-      date_today = test_date
+      date_today = test_date,
+      biz_calendar_name = "not an existing calendar"
     ),
     regexp = "`biz_calendar_name` must be a valid bizdays calendar.*"
   )
@@ -891,8 +891,8 @@ test_that("Function parameter checks work correctly", {
   expect_error(
     parse_weekdays_to_date(
       input_df,
-      biz_calendar_name = "test_cal",
-      date_today = "Not a date"
+      date_today = "Not a date",
+      biz_calendar_name = "test_cal"
     ),
     regexp = "`date_today` must be of type Date.*"
   )
@@ -900,8 +900,8 @@ test_that("Function parameter checks work correctly", {
   expect_error(
     parse_weekdays_to_date(
       input_df,
-      biz_calendar_name = "test_cal",
-      date_today = c(test_date, test_date)
+      date_today = c(test_date, test_date),
+      biz_calendar_name = "test_cal"
     ),
     regexp = "`date_today` must be a single date.*"
   )

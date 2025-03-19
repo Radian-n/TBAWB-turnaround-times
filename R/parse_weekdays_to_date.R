@@ -33,8 +33,8 @@
 #'
 #' parse_weekdays_to_date(
 #'   e6_string_df,
-#'   biz_calendar_name = test_cal,
-#'   date_today = today
+#'   date_today = today,
+#'   biz_calendar_name = test_cal   
 #' )
 #' # # A tibble: 1 × 4
 #' #   Service `Develop Only` `Dev + Scan` `Prints Add On`
@@ -43,8 +43,8 @@
 #'
 parse_weekdays_to_date <- function(
   process_row_df,
-  biz_calendar_name = "bawb_calendar",
-  date_today = lubridate::today(tzone = "Pacific/Auckland")
+  date_today,
+  biz_calendar_name = "bawb_calendar"
 ) {
   # Argument: process_row_df
   assertthat::assert_that(
