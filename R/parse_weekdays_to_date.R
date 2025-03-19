@@ -34,7 +34,7 @@
 #' parse_weekdays_to_date(
 #'   e6_string_df,
 #'   date_today = today,
-#'   biz_calendar_name = test_cal   
+#'   biz_calendar_name = test_cal
 #' )
 #' # # A tibble: 1 × 4
 #' #   Service `Develop Only` `Dev + Scan` `Prints Add On`
