@@ -25,6 +25,7 @@ library(TBAWBTurnaroundTimes)
 ```{r}
 #| label: get-current-datetime
 current_datetime <- lubridate::now(tzone = "Pacific/Auckland")
+current_date <- lubridate::as_date(current_datetime, tz = "Pacific/Auckland")
 ```
 
 ```{r}
