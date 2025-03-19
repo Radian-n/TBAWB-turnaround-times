@@ -1,7 +1,7 @@
 #' Converts a dataframe with strings containing 'working days' into numeric values.
 #'
 #' This function is designed for the following rows: C-41, B&W, ECN-2, ALT.
-#' It is NOT designed for E-6. The function for E-6 is \link[TBAWB-TURNAROUND-TIMES]{parse_weekdays_to_date()}.
+#' It is NOT designed for E-6. The function for E-6 is [parse_weekdays_to_date()].
 #'
 #' @param process_row_df A dataframe with a single row and the columns:
 #' `Service`, `Develop Only`, `Dev + Scan`, `Prints Add On`.
