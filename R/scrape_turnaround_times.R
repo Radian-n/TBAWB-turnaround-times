@@ -7,7 +7,7 @@
 #'
 #' @returns A dataframe. The turnaround times for the specified table.
 #' @export
-get_turnaround_times_df <- function(get_table = "film") {
+scrape_turnaround_times <- function(get_table = "film") {
   # Scrape turnaround times page
   turnaround_times <- rvest::read_html(
     "https://theblackandwhitebox.co.nz/turn-around-times/"

@@ -79,7 +79,7 @@ bawb_biz_calendar <- bizdays::create.calendar(
 
 ```{r}
 #| label: scrape-turnaround-time-webpage
-film_turnaround_df <- get_turnaround_times_df(get_table = "film")
+film_turnaround_df <- scrape_turnaround_times(get_table = "film")
 ```
 
 ```{r}
