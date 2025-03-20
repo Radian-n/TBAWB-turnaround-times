@@ -37,7 +37,6 @@ nz_holidays_api_key <- Sys.getenv("NZ_HOLIDAYS_API_KEY")
 
 # Call NZ Holidays API
 holidays_df <- get_nz_holidays_from_year(
-  year = lubridate::year(current_date),
   api_key = nz_holidays_api_key
 )
 

@@ -1,19 +1,17 @@
 #' Calls the NZ Holidays API and returns a dataframe of holidays
 #'
-#' @param year A single integer. The year to get holiday data from.
 #' @param api_key A single string. The API key for NZ Holidays.
 #'
 #' @returns A dataframe.
 #' @export
-get_nz_holidays_from_year <- function(year, api_key) {
+get_nz_holidays_from_year <- function(api_key) {
   # Create API request
   holiday_req <- httr2::request("https://api.public-holidays.nz/v1/") |>
     httr2::req_url_path_append(
-      path = "year"
+      path = "all"
     ) |>
     httr2::req_url_query(
-      apikey = api_key,
-      year = year
+      apikey = api_key
     )
 
   # Perform request
