@@ -71,7 +71,7 @@ test_that("2025 january checks", {
 
 
 test_that("2026 January checks", {
-  
+
   # Summer period ends on a Sunday
   result_v <- get_summer_holiday_dates(2026, december_start_day = 27, january_end_day = 3)
   expected_v <- c(
@@ -158,7 +158,7 @@ test_that("2026 January checks", {
 
 
 test_that("2027 January checks", {
-  
+
   # Summer period ends on a Sunday
   result_v <- get_summer_holiday_dates(2027, december_start_day = 27, january_end_day = 3)
   expected_v <- c(

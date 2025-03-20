@@ -48,7 +48,7 @@ holiday_dates_df <- holidays_df |>
   dplyr::filter(
     (stringr::str_detect(HolidayName, "Auckland")) |
       (Type == "National")
-  ) |> 
+  ) |>
   dplyr::mutate(across(where(is.Date), ~lubridate::ymd(.x, tz = "Pacific/Auckland"))) |> # Convert to POSIXt
   dplyr::mutate(across(where(is.POSIXct), ~lubridate::as_date(.x, tz = "Pacific/Auckland"))) # Convert to Date
 ```
