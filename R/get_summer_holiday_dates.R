@@ -17,7 +17,7 @@
 #' get_summer_holiday_dates(2024, december_start_day = 27, january_end_day = 5)
 #' # [1] "2024-01-01" "2024-01-02" "2024-01-03" "2024-01-04" "2024-12-27" "2024-12-28" "2024-12-29" "2024-12-30" "2024-12-31"
 #' 
-get_summer_holiday_dates <- function(year, december_start_day = 18, january_end_day = 5) {
+get_summer_holiday_dates <- function(year, december_start_day = 28, january_end_day = 5) {
 
   weekend_cal <- bizdays::create.calendar(
     name = "weekend_cal",
