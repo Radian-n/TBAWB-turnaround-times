@@ -51,26 +51,15 @@ holiday_dates_df <- holidays_df |>
 ```
 
 ```{r}
-# Black and White Box summer holiday dates
-tbawb_holiday_dates_this_year <- get_summer_holiday_dates(lubridate::year(current_date), december_start_day = 28, january_end_day = 5)
-tbawb_holiday_dates_next_year <- get_summer_holiday_dates(lubridate::year(current_date) + 1, december_start_day = 28, january_end_day = 5)
-tbawb_holiday_dates <- c(tbawb_holiday_dates_this_year, tbawb_holiday_dates_next_year)
-```
-
-```{r}
-full_holiday_dates <- c(holiday_dates_df$ObservedDate, tbawb_holiday_dates)
-```
-
-
-```{r}
 #| label: create-bizdays-calendar
+
 # Set up 'business calendar' for 'work day' calculations.
 # This is used to account for weekends and public holidays when calculating due dates.
 # create.calendar() defaults to setting start.date to the min(holidays). So need to specify manual start/end dates.
 bawb_biz_calendar <- bizdays::create.calendar(
   "bawb_calendar",
   weekdays = c("saturday", "sunday"),
-  holidays = full_holiday_dates,
+  holidays = holiday_dates_df$ObservedDate,
   start.date = lubridate::ymd("1970-01-01"),
   end.date = lubridate::ymd("2071-01-01"),
 )
