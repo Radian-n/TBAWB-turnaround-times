@@ -10,6 +10,7 @@ execute:
 
 ```{r}
 #| label: load-packages
+
 library(rvest)
 library(httr2)
 library(tibble)
@@ -24,12 +25,14 @@ library(TBAWBTurnaroundTimes)
 
 ```{r}
 #| label: get-current-datetime
+
 current_datetime <- lubridate::now(tzone = "Pacific/Auckland")
 current_date <- lubridate::as_date(current_datetime, tz = "Pacific/Auckland")
 ```
 
 ```{r}
 #| label: access-nz-holidays-api
+
 # NZ Holidays API key comes from system environment:
 #  - Local development: .Renviron
 #  - Production: github secret
@@ -67,10 +70,13 @@ bawb_biz_calendar <- bizdays::create.calendar(
 
 ```{r}
 #| label: scrape-turnaround-time-webpage
+
 film_turnaround_df <- scrape_turnaround_times(get_table = "film")
 ```
 
 ```{r}
+#| label: parse-turnaround-times
+
 c41_df <- film_turnaround_df |>
   dplyr::filter(Service == "C-41") |>
   parse_working_days_to_numeric() |>
@@ -112,6 +118,8 @@ turaround_dates_df <- dplyr::bind_rows(
 ```
 
 ```{r}
+#| label: format-turnaround-times
+
 turnaround_format_df <- turaround_dates_df |>
   # Format dates into 'weekday day-month-year'
   dplyr::mutate(across(where(is.Date), ~ format(.x, "%A - %d %B")))
@@ -124,6 +132,7 @@ turnaround_format_df <- turaround_dates_df |>
 
 ```{r}
 #| label: turnaround-date-C41
+
 turnaround_format_df |>
   dplyr::filter(Service == "C-41") |>
   dplyr::select(-Service) |>
@@ -136,6 +145,7 @@ turnaround_format_df |>
 
 ```{r}
 #| label: turnaround-date-BW
+
 turnaround_format_df |>
   dplyr::filter(Service == "B&W") |>
   dplyr::select(-Service) |>
@@ -148,6 +158,7 @@ turnaround_format_df |>
 
 ```{r}
 #| label: turnaround-date-E6
+
 turnaround_format_df |>
   dplyr::filter(Service == "E-6") |>
   dplyr::select(-Service) |>
@@ -160,6 +171,7 @@ turnaround_format_df |>
 
 ```{r}
 #| label: turnaround-date-ECN2
+
 turnaround_format_df |>
   dplyr::filter(Service == "ECN-2") |>
   dplyr::select(-Service) |>
@@ -172,6 +184,7 @@ turnaround_format_df |>
 
 ```{r}
 #| label: turnaround-date-SOUP
+
 turnaround_format_df |>
   dplyr::filter(Service == "Souped Film") |>
   dplyr::select(-Service) |>
@@ -184,6 +197,7 @@ turnaround_format_df |>
 
 ```{r}
 #| label: turnaround-date-ALT
+
 turnaround_format_df |>
   dplyr::filter(Service == "ALT Formats (APS/110/126/127)") |>
   dplyr::select(-Service) |>
