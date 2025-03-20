@@ -19,7 +19,7 @@
 #' 
 get_summer_holiday_dates <- function(year, december_start_day = 28, january_end_day = 5) {
 
-  weekend_cal <- bizdays::create.calendar(
+  bizdays::create.calendar(
     name = "weekend_cal",
     weekdays = c("saturday", "sunday"),
     start.date = lubridate::ymd("1970-01-01"),
