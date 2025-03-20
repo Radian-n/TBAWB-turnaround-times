@@ -39,7 +39,7 @@ current_date <- lubridate::as_date(current_datetime, tz = "Pacific/Auckland")
 nz_holidays_api_key <- Sys.getenv("NZ_HOLIDAYS_API_KEY")
 
 # Call NZ Holidays API
-holidays_df <- get_nz_holidays_from_year(
+holidays_df <- get_all_nz_holidays(
   api_key = nz_holidays_api_key
 )
 

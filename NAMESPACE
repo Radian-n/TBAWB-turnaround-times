@@ -3,7 +3,7 @@
 export(create_table)
 export(days_until_weekday)
 export(extract_weekday_from_string)
-export(get_nz_holidays_from_year)
+export(get_all_nz_holidays)
 export(get_summer_holiday_dates)
 export(parse_digits_to_dates)
 export(parse_weekdays_to_date)

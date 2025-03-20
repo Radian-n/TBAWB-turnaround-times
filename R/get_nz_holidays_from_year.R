@@ -4,7 +4,7 @@
 #'
 #' @returns A dataframe.
 #' @export
-get_nz_holidays_from_year <- function(api_key) {
+get_all_nz_holidays <- function(api_key) {
   # Create API request
   holiday_req <- httr2::request("https://api.public-holidays.nz/v1/") |>
     httr2::req_url_path_append(
