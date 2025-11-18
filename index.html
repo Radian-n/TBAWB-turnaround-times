@@ -102,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>As of <strong>Tuesday 18 November 2025</strong> at 05:47AM</em></p>
+<p><em>As of <strong>Wednesday 19 November 2025</strong> at 05:48AM</em></p>
 <section id="c-41" class="level4">
 <h4 class="anchored" data-anchor-id="c-41">C-41</h4>
 <div class="cell">
@@ -111,8 +111,8 @@ ul.task-list li input[type="checkbox"] {
 
     <script>
 
-      function styleCell_rn6yt71a8ng7jzdy3q8s(i, j, css_id) {
-          var table = document.getElementById("tinytable_rn6yt71a8ng7jzdy3q8s");
+      function styleCell_otvvljz7hlfqi3xjmnmn(i, j, css_id) {
+          var table = document.getElementById("tinytable_otvvljz7hlfqi3xjmnmn");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -122,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_rn6yt71a8ng7jzdy3q8s');
+        var table = document.getElementById('tinytable_otvvljz7hlfqi3xjmnmn');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -130,8 +130,8 @@ ul.task-list li input[type="checkbox"] {
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_rn6yt71a8ng7jzdy3q8s(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_rn6yt71a8ng7jzdy3q8s");
+      function spanCell_otvvljz7hlfqi3xjmnmn(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_otvvljz7hlfqi3xjmnmn");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -161,14 +161,14 @@ ul.task-list li input[type="checkbox"] {
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 1, j: 0 }, { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_zc88neft6klk3n3ds5hd',}, 
-          { positions: [ { i: 0, j: 0 }, { i: 0, j: 1 }, { i: 0, j: 2 },  ], css_id: 'tinytable_css_qs1c7rte5qhrtllbe3il',}, 
+          { positions: [ { i: 1, j: 0 }, { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_ttibpkigbrebzeiyjr4i',}, 
+          { positions: [ { i: 0, j: 0 }, { i: 0, j: 1 }, { i: 0, j: 2 },  ], css_id: 'tinytable_css_aksnahcsafdlz6aug3ym',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_rn6yt71a8ng7jzdy3q8s(cell.i, cell.j, group.css_id);
+                  styleCell_otvvljz7hlfqi3xjmnmn(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -176,8 +176,8 @@ ul.task-list li input[type="checkbox"] {
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_zc88neft6klk3n3ds5hd, .table th.tinytable_css_zc88neft6klk3n3ds5hd { background-color: #F2F2F2; font-size: 0.9em; border-bottom: solid #d3d8dc 0.1em; width: 33.3333333333333%; }
-      .table td.tinytable_css_qs1c7rte5qhrtllbe3il, .table th.tinytable_css_qs1c7rte5qhrtllbe3il { font-size: 0.9em; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; width: 33.3333333333333%; }
+      .table td.tinytable_css_ttibpkigbrebzeiyjr4i, .table th.tinytable_css_ttibpkigbrebzeiyjr4i { background-color: #F2F2F2; font-size: 0.9em; border-bottom: solid #d3d8dc 0.1em; width: 33.3333333333333%; }
+      .table td.tinytable_css_aksnahcsafdlz6aug3ym, .table th.tinytable_css_aksnahcsafdlz6aug3ym { font-size: 0.9em; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; width: 33.3333333333333%; }
 
         .mytable th, .mytable td {
           padding: .25rem .25rem;
@@ -193,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
       
     </style>
     <div class="container">
-      <table class="table mytable" id="tinytable_rn6yt71a8ng7jzdy3q8s" style="table-layout: fixed; width: 100% !important; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table mytable" id="tinytable_otvvljz7hlfqi3xjmnmn" style="table-layout: fixed; width: 100% !important; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
         
               <tr>
@@ -205,9 +205,9 @@ ul.task-list li input[type="checkbox"] {
         
         <tbody>
                 <tr>
-                  <td>Monday - 24 November</td>
                   <td>Tuesday - 25 November</td>
                   <td>Wednesday - 26 November</td>
+                  <td>Thursday - 27 November</td>
                 </tr>
         </tbody>
       </table>
@@ -226,8 +226,8 @@ ul.task-list li input[type="checkbox"] {
 
     <script>
 
-      function styleCell_sxyh6zx7zcfsnv8236dg(i, j, css_id) {
-          var table = document.getElementById("tinytable_sxyh6zx7zcfsnv8236dg");
+      function styleCell_0kj6uz5b25koveihyh8a(i, j, css_id) {
+          var table = document.getElementById("tinytable_0kj6uz5b25koveihyh8a");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -237,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_sxyh6zx7zcfsnv8236dg');
+        var table = document.getElementById('tinytable_0kj6uz5b25koveihyh8a');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -245,8 +245,8 @@ ul.task-list li input[type="checkbox"] {
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_sxyh6zx7zcfsnv8236dg(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_sxyh6zx7zcfsnv8236dg");
+      function spanCell_0kj6uz5b25koveihyh8a(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_0kj6uz5b25koveihyh8a");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -276,14 +276,14 @@ ul.task-list li input[type="checkbox"] {
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 1, j: 0 }, { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_bfs2s1wnb0f8rmpg6woi',}, 
-          { positions: [ { i: 0, j: 0 }, { i: 0, j: 1 }, { i: 0, j: 2 },  ], css_id: 'tinytable_css_002gywmunkpof5kpdtyi',}, 
+          { positions: [ { i: 1, j: 0 }, { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_ky3t57swqfiqqjfng9bh',}, 
+          { positions: [ { i: 0, j: 0 }, { i: 0, j: 1 }, { i: 0, j: 2 },  ], css_id: 'tinytable_css_2fl4yrw68566ksqrm2ak',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_sxyh6zx7zcfsnv8236dg(cell.i, cell.j, group.css_id);
+                  styleCell_0kj6uz5b25koveihyh8a(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -291,8 +291,8 @@ ul.task-list li input[type="checkbox"] {
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_bfs2s1wnb0f8rmpg6woi, .table th.tinytable_css_bfs2s1wnb0f8rmpg6woi { background-color: #F2F2F2; font-size: 0.9em; border-bottom: solid #d3d8dc 0.1em; width: 33.3333333333333%; }
-      .table td.tinytable_css_002gywmunkpof5kpdtyi, .table th.tinytable_css_002gywmunkpof5kpdtyi { font-size: 0.9em; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; width: 33.3333333333333%; }
+      .table td.tinytable_css_ky3t57swqfiqqjfng9bh, .table th.tinytable_css_ky3t57swqfiqqjfng9bh { background-color: #F2F2F2; font-size: 0.9em; border-bottom: solid #d3d8dc 0.1em; width: 33.3333333333333%; }
+      .table td.tinytable_css_2fl4yrw68566ksqrm2ak, .table th.tinytable_css_2fl4yrw68566ksqrm2ak { font-size: 0.9em; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; width: 33.3333333333333%; }
 
         .mytable th, .mytable td {
           padding: .25rem .25rem;
@@ -308,7 +308,7 @@ ul.task-list li input[type="checkbox"] {
       
     </style>
     <div class="container">
-      <table class="table mytable" id="tinytable_sxyh6zx7zcfsnv8236dg" style="table-layout: fixed; width: 100% !important; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table mytable" id="tinytable_0kj6uz5b25koveihyh8a" style="table-layout: fixed; width: 100% !important; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
         
               <tr>
@@ -320,9 +320,9 @@ ul.task-list li input[type="checkbox"] {
         
         <tbody>
                 <tr>
-                  <td>Wednesday - 26 November</td>
                   <td>Thursday - 27 November</td>
                   <td>Friday - 28 November</td>
+                  <td>Monday - 01 December</td>
                 </tr>
         </tbody>
       </table>
@@ -341,8 +341,8 @@ ul.task-list li input[type="checkbox"] {
 
     <script>
 
-      function styleCell_n30fgcj5ezomx080t7pn(i, j, css_id) {
-          var table = document.getElementById("tinytable_n30fgcj5ezomx080t7pn");
+      function styleCell_q248n0163sbivii5uo7x(i, j, css_id) {
+          var table = document.getElementById("tinytable_q248n0163sbivii5uo7x");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -352,7 +352,7 @@ ul.task-list li input[type="checkbox"] {
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_n30fgcj5ezomx080t7pn');
+        var table = document.getElementById('tinytable_q248n0163sbivii5uo7x');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -360,8 +360,8 @@ ul.task-list li input[type="checkbox"] {
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_n30fgcj5ezomx080t7pn(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_n30fgcj5ezomx080t7pn");
+      function spanCell_q248n0163sbivii5uo7x(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_q248n0163sbivii5uo7x");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -391,14 +391,14 @@ ul.task-list li input[type="checkbox"] {
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 1, j: 0 }, { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_skeavwwgsp45j5fact5b',}, 
-          { positions: [ { i: 0, j: 0 }, { i: 0, j: 1 }, { i: 0, j: 2 },  ], css_id: 'tinytable_css_1i98ocos7p0c7a756gqc',}, 
+          { positions: [ { i: 0, j: 0 }, { i: 0, j: 1 }, { i: 0, j: 2 },  ], css_id: 'tinytable_css_1dvxg8mmkls0j82vw7r6',}, 
+          { positions: [ { i: 1, j: 0 }, { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_0j7d4lui5jodcwxz6m6r',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_n30fgcj5ezomx080t7pn(cell.i, cell.j, group.css_id);
+                  styleCell_q248n0163sbivii5uo7x(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -406,8 +406,8 @@ ul.task-list li input[type="checkbox"] {
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_skeavwwgsp45j5fact5b, .table th.tinytable_css_skeavwwgsp45j5fact5b { background-color: #F2F2F2; font-size: 0.9em; border-bottom: solid #d3d8dc 0.1em; width: 33.3333333333333%; }
-      .table td.tinytable_css_1i98ocos7p0c7a756gqc, .table th.tinytable_css_1i98ocos7p0c7a756gqc { font-size: 0.9em; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; width: 33.3333333333333%; }
+      .table td.tinytable_css_1dvxg8mmkls0j82vw7r6, .table th.tinytable_css_1dvxg8mmkls0j82vw7r6 { font-size: 0.9em; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; width: 33.3333333333333%; }
+      .table td.tinytable_css_0j7d4lui5jodcwxz6m6r, .table th.tinytable_css_0j7d4lui5jodcwxz6m6r { background-color: #F2F2F2; font-size: 0.9em; border-bottom: solid #d3d8dc 0.1em; width: 33.3333333333333%; }
 
         .mytable th, .mytable td {
           padding: .25rem .25rem;
@@ -423,7 +423,7 @@ ul.task-list li input[type="checkbox"] {
       
     </style>
     <div class="container">
-      <table class="table mytable" id="tinytable_n30fgcj5ezomx080t7pn" style="table-layout: fixed; width: 100% !important; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table mytable" id="tinytable_q248n0163sbivii5uo7x" style="table-layout: fixed; width: 100% !important; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
         
               <tr>
@@ -435,9 +435,9 @@ ul.task-list li input[type="checkbox"] {
         
         <tbody>
                 <tr>
-                  <td>Thursday - 20 November</td>
-                  <td>Friday - 21 November</td>
-                  <td>Monday - 24 November</td>
+                  <td>Thursday - 27 November</td>
+                  <td>Friday - 28 November</td>
+                  <td>Monday - 01 December</td>
                 </tr>
         </tbody>
       </table>
@@ -456,8 +456,8 @@ ul.task-list li input[type="checkbox"] {
 
     <script>
 
-      function styleCell_35qsnozoi45abmjlg5qw(i, j, css_id) {
-          var table = document.getElementById("tinytable_35qsnozoi45abmjlg5qw");
+      function styleCell_9kdmxrak2lfw49izaltt(i, j, css_id) {
+          var table = document.getElementById("tinytable_9kdmxrak2lfw49izaltt");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -467,7 +467,7 @@ ul.task-list li input[type="checkbox"] {
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_35qsnozoi45abmjlg5qw');
+        var table = document.getElementById('tinytable_9kdmxrak2lfw49izaltt');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -475,8 +475,8 @@ ul.task-list li input[type="checkbox"] {
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_35qsnozoi45abmjlg5qw(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_35qsnozoi45abmjlg5qw");
+      function spanCell_9kdmxrak2lfw49izaltt(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_9kdmxrak2lfw49izaltt");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -506,14 +506,14 @@ ul.task-list li input[type="checkbox"] {
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 0, j: 0 }, { i: 0, j: 1 }, { i: 0, j: 2 },  ], css_id: 'tinytable_css_voea5ms8q0hxkdfjg77b',}, 
-          { positions: [ { i: 1, j: 0 }, { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_7rhh599d1l0f7qr49fo8',}, 
+          { positions: [ { i: 1, j: 0 }, { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_wtbsm21uh3sjulkgylve',}, 
+          { positions: [ { i: 0, j: 0 }, { i: 0, j: 1 }, { i: 0, j: 2 },  ], css_id: 'tinytable_css_bjze6jcqcylcbir9mnrg',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_35qsnozoi45abmjlg5qw(cell.i, cell.j, group.css_id);
+                  styleCell_9kdmxrak2lfw49izaltt(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -521,8 +521,8 @@ ul.task-list li input[type="checkbox"] {
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_voea5ms8q0hxkdfjg77b, .table th.tinytable_css_voea5ms8q0hxkdfjg77b { font-size: 0.9em; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; width: 33.3333333333333%; }
-      .table td.tinytable_css_7rhh599d1l0f7qr49fo8, .table th.tinytable_css_7rhh599d1l0f7qr49fo8 { background-color: #F2F2F2; font-size: 0.9em; border-bottom: solid #d3d8dc 0.1em; width: 33.3333333333333%; }
+      .table td.tinytable_css_wtbsm21uh3sjulkgylve, .table th.tinytable_css_wtbsm21uh3sjulkgylve { background-color: #F2F2F2; font-size: 0.9em; border-bottom: solid #d3d8dc 0.1em; width: 33.3333333333333%; }
+      .table td.tinytable_css_bjze6jcqcylcbir9mnrg, .table th.tinytable_css_bjze6jcqcylcbir9mnrg { font-size: 0.9em; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; width: 33.3333333333333%; }
 
         .mytable th, .mytable td {
           padding: .25rem .25rem;
@@ -538,7 +538,7 @@ ul.task-list li input[type="checkbox"] {
       
     </style>
     <div class="container">
-      <table class="table mytable" id="tinytable_35qsnozoi45abmjlg5qw" style="table-layout: fixed; width: 100% !important; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table mytable" id="tinytable_9kdmxrak2lfw49izaltt" style="table-layout: fixed; width: 100% !important; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
         
               <tr>
@@ -550,9 +550,9 @@ ul.task-list li input[type="checkbox"] {
         
         <tbody>
                 <tr>
-                  <td>Thursday - 04 December</td>
                   <td>Friday - 05 December</td>
                   <td>Monday - 08 December</td>
+                  <td>Tuesday - 09 December</td>
                 </tr>
         </tbody>
       </table>
@@ -571,8 +571,8 @@ ul.task-list li input[type="checkbox"] {
 
     <script>
 
-      function styleCell_bih03hiji86tfr0uvftp(i, j, css_id) {
-          var table = document.getElementById("tinytable_bih03hiji86tfr0uvftp");
+      function styleCell_qqx6dbhn2akzn6r66t0a(i, j, css_id) {
+          var table = document.getElementById("tinytable_qqx6dbhn2akzn6r66t0a");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -582,7 +582,7 @@ ul.task-list li input[type="checkbox"] {
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_bih03hiji86tfr0uvftp');
+        var table = document.getElementById('tinytable_qqx6dbhn2akzn6r66t0a');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -590,8 +590,8 @@ ul.task-list li input[type="checkbox"] {
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_bih03hiji86tfr0uvftp(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_bih03hiji86tfr0uvftp");
+      function spanCell_qqx6dbhn2akzn6r66t0a(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_qqx6dbhn2akzn6r66t0a");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -621,14 +621,14 @@ ul.task-list li input[type="checkbox"] {
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 0, j: 0 }, { i: 0, j: 1 }, { i: 0, j: 2 },  ], css_id: 'tinytable_css_wbfp26b6tjkeb6vyjj83',}, 
-          { positions: [ { i: 1, j: 0 }, { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_dmk4p18mh3whqwtsh906',}, 
+          { positions: [ { i: 1, j: 0 }, { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_d3g389440uia6rqatzzi',}, 
+          { positions: [ { i: 0, j: 0 }, { i: 0, j: 1 }, { i: 0, j: 2 },  ], css_id: 'tinytable_css_902v5qxbe7835bkeghhi',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_bih03hiji86tfr0uvftp(cell.i, cell.j, group.css_id);
+                  styleCell_qqx6dbhn2akzn6r66t0a(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -636,8 +636,8 @@ ul.task-list li input[type="checkbox"] {
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_wbfp26b6tjkeb6vyjj83, .table th.tinytable_css_wbfp26b6tjkeb6vyjj83 { font-size: 0.9em; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; width: 33.3333333333333%; }
-      .table td.tinytable_css_dmk4p18mh3whqwtsh906, .table th.tinytable_css_dmk4p18mh3whqwtsh906 { background-color: #F2F2F2; font-size: 0.9em; border-bottom: solid #d3d8dc 0.1em; width: 33.3333333333333%; }
+      .table td.tinytable_css_d3g389440uia6rqatzzi, .table th.tinytable_css_d3g389440uia6rqatzzi { background-color: #F2F2F2; font-size: 0.9em; border-bottom: solid #d3d8dc 0.1em; width: 33.3333333333333%; }
+      .table td.tinytable_css_902v5qxbe7835bkeghhi, .table th.tinytable_css_902v5qxbe7835bkeghhi { font-size: 0.9em; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; width: 33.3333333333333%; }
 
         .mytable th, .mytable td {
           padding: .25rem .25rem;
@@ -653,7 +653,7 @@ ul.task-list li input[type="checkbox"] {
       
     </style>
     <div class="container">
-      <table class="table mytable" id="tinytable_bih03hiji86tfr0uvftp" style="table-layout: fixed; width: 100% !important; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table mytable" id="tinytable_qqx6dbhn2akzn6r66t0a" style="table-layout: fixed; width: 100% !important; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
         
               <tr>
@@ -665,9 +665,9 @@ ul.task-list li input[type="checkbox"] {
         
         <tbody>
                 <tr>
-                  <td>Thursday - 04 December</td>
                   <td>Friday - 05 December</td>
                   <td>Monday - 08 December</td>
+                  <td>Tuesday - 09 December</td>
                 </tr>
         </tbody>
       </table>
@@ -686,8 +686,8 @@ ul.task-list li input[type="checkbox"] {
 
     <script>
 
-      function styleCell_s4op5yxub2hy7jjbe1l5(i, j, css_id) {
-          var table = document.getElementById("tinytable_s4op5yxub2hy7jjbe1l5");
+      function styleCell_lqfdh7ovou2gx7u2k93q(i, j, css_id) {
+          var table = document.getElementById("tinytable_lqfdh7ovou2gx7u2k93q");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -697,7 +697,7 @@ ul.task-list li input[type="checkbox"] {
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_s4op5yxub2hy7jjbe1l5');
+        var table = document.getElementById('tinytable_lqfdh7ovou2gx7u2k93q');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -705,8 +705,8 @@ ul.task-list li input[type="checkbox"] {
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_s4op5yxub2hy7jjbe1l5(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_s4op5yxub2hy7jjbe1l5");
+      function spanCell_lqfdh7ovou2gx7u2k93q(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_lqfdh7ovou2gx7u2k93q");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -736,14 +736,14 @@ ul.task-list li input[type="checkbox"] {
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 0, j: 0 }, { i: 0, j: 1 }, { i: 0, j: 2 },  ], css_id: 'tinytable_css_ny6po42j6s9p5anuip9v',}, 
-          { positions: [ { i: 1, j: 0 }, { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_a6lvicrjprsyxdc8a503',}, 
+          { positions: [ { i: 0, j: 0 }, { i: 0, j: 1 }, { i: 0, j: 2 },  ], css_id: 'tinytable_css_8mbmd9ihcu83gtsj813m',}, 
+          { positions: [ { i: 1, j: 0 }, { i: 1, j: 1 }, { i: 1, j: 2 },  ], css_id: 'tinytable_css_11kk7homlshyokqou1wn',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_s4op5yxub2hy7jjbe1l5(cell.i, cell.j, group.css_id);
+                  styleCell_lqfdh7ovou2gx7u2k93q(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -751,8 +751,8 @@ ul.task-list li input[type="checkbox"] {
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_ny6po42j6s9p5anuip9v, .table th.tinytable_css_ny6po42j6s9p5anuip9v { font-size: 0.9em; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; width: 33.3333333333333%; }
-      .table td.tinytable_css_a6lvicrjprsyxdc8a503, .table th.tinytable_css_a6lvicrjprsyxdc8a503 { background-color: #F2F2F2; font-size: 0.9em; border-bottom: solid #d3d8dc 0.1em; width: 33.3333333333333%; }
+      .table td.tinytable_css_8mbmd9ihcu83gtsj813m, .table th.tinytable_css_8mbmd9ihcu83gtsj813m { font-size: 0.9em; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; width: 33.3333333333333%; }
+      .table td.tinytable_css_11kk7homlshyokqou1wn, .table th.tinytable_css_11kk7homlshyokqou1wn { background-color: #F2F2F2; font-size: 0.9em; border-bottom: solid #d3d8dc 0.1em; width: 33.3333333333333%; }
 
         .mytable th, .mytable td {
           padding: .25rem .25rem;
@@ -768,7 +768,7 @@ ul.task-list li input[type="checkbox"] {
       
     </style>
     <div class="container">
-      <table class="table mytable" id="tinytable_s4op5yxub2hy7jjbe1l5" style="table-layout: fixed; width: 100% !important; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table mytable" id="tinytable_lqfdh7ovou2gx7u2k93q" style="table-layout: fixed; width: 100% !important; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
         
               <tr>
@@ -780,9 +780,9 @@ ul.task-list li input[type="checkbox"] {
         
         <tbody>
                 <tr>
-                  <td>Thursday - 04 December</td>
                   <td>Friday - 05 December</td>
                   <td>Monday - 08 December</td>
+                  <td>Tuesday - 09 December</td>
                 </tr>
         </tbody>
       </table>
