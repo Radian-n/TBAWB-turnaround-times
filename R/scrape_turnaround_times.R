@@ -8,10 +8,20 @@
 #' @returns A dataframe. The turnaround times for the specified table.
 #' @export
 scrape_turnaround_times <- function(get_table = "film") {
-  # Scrape turnaround times page
-  turnaround_times <- rvest::read_html(
-    "https://theblackandwhitebox.co.nz/turn-around-times/"
+  # Allow multiple attempts at reading the web page
+  insistent_read_html <- purrr::insistently(
+    f = rvest::read_html,
+    rate = purrr::rate_backoff(
+      pause_base = 2,
+      pause_cap = 120,
+      pause_min = 1,
+      max_times = 5,
+      jitter = TRUE
+    )
   )
+
+  # Scrape turnaround times page
+  turnaround_times <- insistent_read_html("https://theblackandwhitebox.co.nz/turn-around-times/")
 
   # Extract turnaround times tables (film lab, printing)
   turnaround_times_df <- turnaround_times |>
