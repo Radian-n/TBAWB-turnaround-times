@@ -11,17 +11,23 @@ scrape_turnaround_times <- function(get_table = "film") {
   # Allow multiple attempts at reading the web page
   insistent_read_html <- purrr::insistently(
     f = rvest::read_html,
-    rate = purrr::rate_backoff(
-      pause_base = 2,
-      pause_cap = 120,
-      pause_min = 1,
-      max_times = 5,
-      jitter = TRUE
+    rate = purrr::rate_delay(
+      pause = 10,
+      max_times = 5
     )
   )
 
   # Scrape turnaround times page
   turnaround_times <- insistent_read_html("https://theblackandwhitebox.co.nz/turn-around-times/")
+
+  tables <- rvest::html_elements(turnaround_times, "table")
+
+  message("Found ", length(tables), " tables")
+  message("Page title: ",
+          rvest::html_element(turnaround_times, "title") |>
+          rvest::html_text2())
+  message("First 500 chars:")
+  message(substr(as.character(tables), 1, 500))
 
   # Extract turnaround times tables (film lab, printing)
   turnaround_times_df <- turnaround_times |>
